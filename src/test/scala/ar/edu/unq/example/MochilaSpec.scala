@@ -4,7 +4,7 @@ package ar.edu.unq.example
   * Created by user on 28/08/2016.
   */
 class MochilaSpec extends BaseSpec{
-/*
+
 "una mochila Chica" should "su capacidad 40000 cc3" in{
 
 
@@ -99,7 +99,7 @@ class MochilaSpec extends BaseSpec{
 
     unaMochila.guardarObjeto(otroObjetoRecolectable)
   }
-*/
+
   /********COMPACTACION*********************/
 
   "una mochila chica Con CompactacionPorVacio guarda un objeto no Compactable de 1000 y al preguntarle la capacidad libre" should "39000" in{
@@ -153,15 +153,15 @@ class MochilaSpec extends BaseSpec{
   "una mochila chica Deshidratadora guarda un objeto Organico con porc de agua de 40 al deshidratarlo y preguntarle la capacidad libre" should "39500" in{
 
     val unaMochila= new MochilaConCapacidadChica with Deshidratadora
-    val objetoRecolectable = new ObjetoRecolectable(1000, "roca") with SemiCompactable
-    objetoRecolectable.setValorDecompacatacion(100)
+    val objetoRecolectable = new ObjetoRecolectable(1000, "roca") with Organico
+    objetoRecolectable.setearPorcentajeDeAgua(50)
     unaMochila.capacidadMaxima shouldBe (40000)
     unaMochila.capacidadLibre shouldBe(40000)
 
     unaMochila.guardarObjeto(objetoRecolectable)
-    objetoRecolectable.obtenerVolumen() shouldBe(900)
+    objetoRecolectable.obtenerVolumen() shouldBe(500)
 
-    unaMochila.capacidadLibre shouldBe (39100)
+    unaMochila.capacidadLibre shouldBe (39500)
     unaMochila.estaLlena shouldBe (false)
   }
 
@@ -178,7 +178,7 @@ class MochilaSpec extends BaseSpec{
     unaMochila.energiaDeObjetos() shouldBe (List(1000))
     unaMochila.recibeGolpe(100)
     unaMochila.energiaDeObjetos shouldBe(List(950))
-
+//commit
   }
 
 

@@ -35,17 +35,20 @@ class TrajeSpec extends BaseSpec{
 
   "creo un Traje Pesadp y cuando le pido la capacidad total luego de recorrer 50km " should "4000" in{
 
-    val unTrajeLiviano = new TrajePesado
-    unTrajeLiviano.capacidadMaxima shouldBe(4000)
-    unTrajeLiviano.calcularConsumoAlRecorrerKms(50)
-    unTrajeLiviano.capacidadFinal shouldBe(4000)
+
+    val unTrajePesado = new TrajePesado
+    unTrajePesado.capacidadMaxima shouldBe(4000)
+    unTrajePesado.calcularConsumoAlRecorrerKms(50)
+    unTrajePesado.capacidadFinal shouldBe(4000)
+
+
   }
 
-  "creo un Traje Pesadp y cuando le pido la capacidad total luego de recorrer 120km " should "4000" in{
+  "creo un Traje Pesadp y cuando le pido la capacidad total luego de recorrer 120km " should "3986" in{
 
-    val unTrajeLiviano = new TrajePesado
-    unTrajeLiviano.capacidadMaxima shouldBe(4000)
-    unTrajeLiviano.calcularConsumoAlRecorrerKms(120)
-    unTrajeLiviano.capacidadFinal shouldBe(3986)
+    val unTrajePesado = new TrajePesado
+    unTrajePesado.capacidadMaxima shouldBe(4000)
+    unTrajePesado.calcularConsumoAlRecorrerKms(120)
+    unTrajePesado.capacidadFinal shouldBe(3986)
   }
 }
