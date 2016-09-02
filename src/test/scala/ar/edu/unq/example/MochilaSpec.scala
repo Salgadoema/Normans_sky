@@ -167,19 +167,37 @@ class MochilaSpec extends BaseSpec{
 
 
   "mochila rigida recibe daño de 100 absorve 50% con un objeto de 1000puntos le pregunto al objeto energia dsp del golpe" should "950" in{
-    val unaMochila= new MochilaConCapacidadChica with Deshidratadora with Rigida
+    val unaMochila= new MochilaConCapacidadGrande with Deshidratadora with Rigida {
+
+      override var pocDeProteccion: Int =50
+    }
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca") with SemiCompactable
     objetoRecolectable.setValorDecompacatacion(100)
     unaMochila.guardarObjeto(objetoRecolectable)
 
     unaMochila.energiaDeObjetos() shouldBe (List(1000))
-    unaMochila.porcentajeDeProteccionDedanio(50)
     unaMochila.recibeGolpe(100)
     unaMochila.energiaDeObjetos shouldBe(List(950))
 
+  }
 
+
+  "mochila SemiRigida recibe daño de 100 absorve 20 con un objeto de 1000puntos le pregunto al objeto energia dsp del golpe" should "980" in{
+    val unaMochila= new MochilaConCapacidadGrande with Deshidratadora with SemiRigida {
+      override var constDeAbsorbcion: Int = 20
+    }
+    val objetoRecolectable = new ObjetoRecolectable(1000, "roca") with SemiCompactable
+    objetoRecolectable.setValorDecompacatacion(100)
+    unaMochila.guardarObjeto(objetoRecolectable)
+
+    unaMochila.energiaDeObjetos() shouldBe (List(1000))
+    unaMochila.recibeGolpe(100)
+    unaMochila.energiaDeObjetos shouldBe List(920)
 
   }
+
+
+
 
 
 

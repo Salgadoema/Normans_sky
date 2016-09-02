@@ -9,20 +9,15 @@ class Personaje(energia: Int, unaMochila: Mochila  )  {
   def capacidadOxigenoFinal(): Double = miTraje.capacidadFinal
 
 
-  var miTraje:Traje = new Traje {override def calcularConsumoAlRecorrerKms(kilometros: Double): Unit = ???
+  var miTraje:Traje = new TrajeLiviano
 
-    override var consumoPorKm: Double = _
-    override var capacidadFinal: Double = _
-    override var capacidadMaxima: Double = _
-  }
 
   def caminarKms(km: Double) = {
     miTraje.calcularConsumoAlRecorrerKms(km)
   }
 
 
-  def agregarTraje(unTraje: Traje) =
-  {miTraje=unTraje}
+  def agregarTraje(unTraje: Traje) = miTraje=unTraje
 
   def recolectarObjeto(objetoRecolectable: ObjetoRecolectable) = {
 
