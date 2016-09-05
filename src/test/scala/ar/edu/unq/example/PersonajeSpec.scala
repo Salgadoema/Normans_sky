@@ -4,7 +4,7 @@ package ar.edu.unq.example
   * Created by user on 28/08/2016.
   */
 class PersonajeSpec extends BaseSpec {
-/*
+
   "creo un Personaje Nuevo con Energia" should "saber su energia" in {
     val unaMochila = new  MochilaConCapacidadChica
     val unPersonaje = new Personaje(150, unaMochila)
@@ -48,7 +48,7 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadChica
       val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000)
+      val objetoRecolectable = new ObjetoRecolectable(1000, "piedra", )
       unPersonaje.recolectarObjeto(objetoRecolectable)
       unPersonaje.capacidadLibre shouldBe (39000)
 
@@ -60,7 +60,7 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadMediana
       val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000)
+      val objetoRecolectable = new ObjetoRecolectable(1000, "roca", )
       unPersonaje.recolectarObjeto(objetoRecolectable)
       unPersonaje.capacidadLibre shouldBe (59000)
 
@@ -72,7 +72,7 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadGrande
         val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000)
+      val objetoRecolectable = new ObjetoRecolectable(1000, "Martillo", )
       unPersonaje.recolectarObjeto(objetoRecolectable)
         unPersonaje.capacidadLibre shouldBe (89000)
 
@@ -80,6 +80,4 @@ class PersonajeSpec extends BaseSpec {
       }
 
 
-
-*/
 }

@@ -8,21 +8,21 @@ import scala.collection.mutable.ListBuffer
 abstract class Mochila {
 
   def capacidadLibre(): Int
-  var porcentajeDeProteccionDeDanio : Int= 0
   var objetosRecolectados = ListBuffer[ObjetoRecolectable]()
 
   def energiaDeObjetos():ListBuffer[Int]  ={
   objetosRecolectados.map { a => a.energia }
   }
 
-  def porcentajeDeProteccionDedanio(valor: Int)={
-    porcentajeDeProteccionDeDanio = valor
+  def proteccionAlGolpeDe(golpe: Int): Int = {
+    return golpe
   }
 
   def recibeGolpe(valor: Int):Unit={
 
-    objetosRecolectados.foreach { a => a.recibeDanio(valor*porcentajeDeProteccionDeDanio/100) }
+   objetosRecolectados.foreach { a => a.recibeDanio(proteccionAlGolpeDe(valor))}
   }
+
   def actualizaCapacidadLibre(objetoRecolectable: ObjetoRecolectable)
 
   def recolectarObjeto(objetoRecolectable: ObjetoRecolectable) = {
@@ -45,13 +45,18 @@ abstract class Mochila {
   }
 
   def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
-   // var objetoTemp : ObjetoRecolectable = unObjetoRecolectable.compactarObjeto()
+
     0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen()
-   // 0 <= capacidadLibre - objetoTemp.obtenerVolumen()
   }
 
   def estaLlena() = {
     capacidadLibre == 0
-
   }
+
+
+
+
+
+
+
 }

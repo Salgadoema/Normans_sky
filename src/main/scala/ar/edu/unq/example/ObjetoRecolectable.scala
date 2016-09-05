@@ -3,11 +3,13 @@ package ar.edu.unq.example
 /**
   * Created by user on 30/08/2016.
   */
-class ObjetoRecolectable(capacidadObjeto: Int, nombre: String  ) {
+class ObjetoRecolectable(capacidadObjeto: Int, nombre: String, masa: Int) {
+
 
 
   def volumenCompactado(): Int = volumen
   def volumenDeshidratado(): Int =volumen
+
 
   def compactarObjeto(unObjeto: ObjetoRecolectable): Unit = {
     unObjeto.volumen= unObjeto.volumenCompactado()
