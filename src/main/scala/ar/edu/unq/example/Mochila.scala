@@ -22,7 +22,6 @@ abstract class Mochila {
 
    objetosRecolectados.foreach { a => a.recibeDanio(proteccionAlGolpeDe(valor))}
   }
-
   def actualizaCapacidadLibre(objetoRecolectable: ObjetoRecolectable)
 
   def recolectarObjeto(objetoRecolectable: ObjetoRecolectable) = {
@@ -45,18 +44,15 @@ abstract class Mochila {
   }
 
   def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
-
+   // var objetoTemp : ObjetoRecolectable = unObjetoRecolectable.compactarObjeto()
     0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen()
+   // 0 <= capacidadLibre - objetoTemp.obtenerVolumen()
   }
 
   def estaLlena() = {
     capacidadLibre == 0
+
   }
-
-
-
-
-
-
+}*/
 
 }

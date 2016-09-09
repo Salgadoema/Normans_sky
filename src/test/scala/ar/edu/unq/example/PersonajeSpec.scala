@@ -80,4 +80,51 @@ class PersonajeSpec extends BaseSpec {
       }
 
 
+
+*/
+
+  " personaje Traje Liviano pregunto por la capacidad Oxigeno Final" should "1490" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unTrajeLiviano = new TrajeLiviano
+    unPersonaje.agregarTraje(unTrajeLiviano)
+    unPersonaje.caminarKms(1000)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (1490)
+  }
+
+  " personaje Traje Liviano pregunto por la capacidad Oxigeno Final" should "1499.85" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unTrajeLiviano = new TrajeLiviano
+    unPersonaje.agregarTraje(unTrajeLiviano)
+    unPersonaje.caminarKms(1)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (1499.85)
+  }
+
+  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "4000" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unTrajePesado = new TrajePesado
+    unPersonaje.agregarTraje(unTrajePesado)
+    unPersonaje.caminarKms(50)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (4000)
+  }
+
+  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3986" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unTrajePesado = new TrajePesado
+    unPersonaje.agregarTraje(unTrajePesado)
+    unPersonaje.caminarKms(120)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (3986)
+  }
+
 }

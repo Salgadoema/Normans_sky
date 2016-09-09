@@ -4,7 +4,7 @@ package ar.edu.unq.example
   * Created by user on 28/08/2016.
   */
 class MochilaSpec extends BaseSpec{
-/*
+
 "una mochila Chica" should "su capacidad 40000 cc3" in{
 
 
@@ -99,7 +99,7 @@ class MochilaSpec extends BaseSpec{
 
     unaMochila.guardarObjeto(otroObjetoRecolectable)
   }
-*/
+
   /********COMPACTACION*********************/
 
   "una mochila chica Con CompactacionPorVacio guarda un objeto no Compactable de 1000 y al preguntarle la capacidad libre" should "39000" in{
@@ -175,19 +175,28 @@ class MochilaSpec extends BaseSpec{
     unaMochila.guardarObjeto(objetoRecolectable)
 
     unaMochila.energiaDeObjetos() shouldBe (List(1000))
+    unaMochila.porcentajeDeProteccionDedanio(50)
     unaMochila.recibeGolpe(100)
     unaMochila.energiaDeObjetos shouldBe(List(950))
 
   }
 
-
   "mochila SemiRigida recibe daño de 100 absorve 20 con un objeto de 1000puntos le pregunto al objeto energia dsp del golpe" should "980" in{
     val unaMochila= new MochilaConCapacidadGrande with Deshidratadora with SemiRigida {
       override var constDeAbsorbcion: Int = 20
     }
-    val objetoRecolectable = new ObjetoRecolectable(1000, "roca", ) with SemiCompactable
+    val objetoRecolectable = new ObjetoRecolectable(1000, "roca") with SemiCompactable
     objetoRecolectable.setValorDecompacatacion(100)
     unaMochila.guardarObjeto(objetoRecolectable)
+
+    unaMochila.energiaDeObjetos() shouldBe (List(1000))
+    unaMochila.recibeGolpe(100)
+    unaMochila.energiaDeObjetos shouldBe List(920)
+
+  }
+
+
+
 
     unaMochila.energiaDeObjetos() shouldBe (List(1000))
     unaMochila.recibeGolpe(100)
