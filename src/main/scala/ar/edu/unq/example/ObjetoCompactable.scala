@@ -6,7 +6,6 @@ package ar.edu.unq.example
 trait ObjetoCompactable extends ObjetoRecolectable{
   val tipo:String = "Compactable"
 
-  //override def obtenerVolumen(): Int = super.obtenerVolumen()/2
   override def volumenCompactado(): Int = super.obtenerVolumen()/2
 
 

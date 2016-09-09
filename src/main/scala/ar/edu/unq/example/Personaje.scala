@@ -3,17 +3,18 @@ package ar.edu.unq.example
 /**
   * Created by user on 28/08/2016.
   */
-class Personaje(energia: Int, unaMochila: Mochila  )  {
+class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
 
-  def capacidadOxigenoFinal(): Double = miTraje.capacidadFinal
+  def capacidadOxigenoFinal(): Double = miTraje.oxigenoDisponible
 
 
   var miTraje:Traje = new TrajeLiviano
 
+  val miMochila = unaMochila
 
-  def caminarKms(km: Double) = {
-    miTraje.calcularConsumoAlRecorrerKms(km)
+  def caminarKms(km: Int) = {
+    miTraje.caminar(km)
   }
 
 
@@ -24,12 +25,18 @@ class Personaje(energia: Int, unaMochila: Mochila  )  {
     miMochila.guardarObjeto(objetoRecolectable)
   }
 
-  def capacidadLibre = miMochila.capacidadLibre
+  def capacidadLibre = miMochila.capacidadLibre()
 
-  val miMochila = unaMochila
+
   def miEnergia = energia
 
+  def atacar(unArma : Arma) : Int = {
+    0
+  }
 
+  def recibirDanho(unDanho : Int) : Unit = {
+    energia = energia - proteccionEscudo(unDanho)
+  }
 
-
+  def proteccionEscudo(unDanho : Int) : Int = 0
 }

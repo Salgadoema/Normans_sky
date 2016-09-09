@@ -9,7 +9,7 @@ class PersonajeSpec extends BaseSpec {
     val unaMochila = new  MochilaConCapacidadChica
     val unPersonaje = new Personaje(150, unaMochila)
 
-    unPersonaje.miEnergia shouldBe (150)
+    unPersonaje.miEnergia shouldBe 150
   }
 
   "al personaje se le asigna una mochila chica y cuando le pregunto por la capacidad de la mochila" should "40000cc3" in {
@@ -18,7 +18,7 @@ class PersonajeSpec extends BaseSpec {
     val unaMochila = new MochilaConCapacidadChica
     val unPersonaje = new Personaje(150, unaMochila )
 
-    unPersonaje.capacidadLibre shouldBe (40000)
+    unPersonaje.capacidadLibre shouldBe 40000
 
 
   }
@@ -28,7 +28,7 @@ class PersonajeSpec extends BaseSpec {
 
     val unaMochila = new MochilaConCapacidadMediana
     val unPersonaje = new Personaje(150, unaMochila )
-    unPersonaje.capacidadLibre shouldBe (60000)
+    unPersonaje.capacidadLibre shouldBe 60000
 
 
   }
@@ -38,7 +38,7 @@ class PersonajeSpec extends BaseSpec {
 
     val unaMochila = new MochilaConCapacidadGrande
     val unPersonaje = new Personaje(150, unaMochila )
-    unPersonaje.capacidadLibre shouldBe (90000)
+    unPersonaje.capacidadLibre shouldBe 90000
 
 
   }
@@ -48,9 +48,9 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadChica
       val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000, "piedra", )
+      val objetoRecolectable = new ObjetoRecolectable(1000, "piedra", 0)
       unPersonaje.recolectarObjeto(objetoRecolectable)
-      unPersonaje.capacidadLibre shouldBe (39000)
+      unPersonaje.capacidadLibre shouldBe 39000
 
 
     }
@@ -60,9 +60,9 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadMediana
       val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000, "roca", )
+      val objetoRecolectable = new ObjetoRecolectable(1000, "roca", 0)
       unPersonaje.recolectarObjeto(objetoRecolectable)
-      unPersonaje.capacidadLibre shouldBe (59000)
+      unPersonaje.capacidadLibre shouldBe 59000
 
 
     }
@@ -72,16 +72,13 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadGrande
         val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000, "Martillo", )
+      val objetoRecolectable = new ObjetoRecolectable(1000, "Martillo", 0)
       unPersonaje.recolectarObjeto(objetoRecolectable)
-        unPersonaje.capacidadLibre shouldBe (89000)
+        unPersonaje.capacidadLibre shouldBe 89000
 
 
       }
 
-
-
-*/
 
   " personaje Traje Liviano pregunto por la capacidad Oxigeno Final" should "1490" in {
 
@@ -91,7 +88,7 @@ class PersonajeSpec extends BaseSpec {
     val unTrajeLiviano = new TrajeLiviano
     unPersonaje.agregarTraje(unTrajeLiviano)
     unPersonaje.caminarKms(1000)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (1490)
+    unPersonaje.capacidadOxigenoFinal() shouldBe 1490
   }
 
   " personaje Traje Liviano pregunto por la capacidad Oxigeno Final" should "1499.85" in {
@@ -101,8 +98,8 @@ class PersonajeSpec extends BaseSpec {
     val unPersonaje = new Personaje(150, unaMochila)
     val unTrajeLiviano = new TrajeLiviano
     unPersonaje.agregarTraje(unTrajeLiviano)
-    unPersonaje.caminarKms(1)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (1499.85)
+    unPersonaje.caminarKms(60)
+    unPersonaje.capacidadOxigenoFinal() shouldBe 1491
   }
 
   " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "4000" in {
@@ -113,7 +110,7 @@ class PersonajeSpec extends BaseSpec {
     val unTrajePesado = new TrajePesado
     unPersonaje.agregarTraje(unTrajePesado)
     unPersonaje.caminarKms(50)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (4000)
+    unPersonaje.capacidadOxigenoFinal() shouldBe 4000
   }
 
   " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3986" in {
@@ -124,7 +121,7 @@ class PersonajeSpec extends BaseSpec {
     val unTrajePesado = new TrajePesado
     unPersonaje.agregarTraje(unTrajePesado)
     unPersonaje.caminarKms(120)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (3986)
+    unPersonaje.capacidadOxigenoFinal() shouldBe 3986
   }
 
 }

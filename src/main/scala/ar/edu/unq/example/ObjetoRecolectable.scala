@@ -27,9 +27,11 @@ class ObjetoRecolectable(capacidadObjeto: Int, nombre: String, masa: Int) {
   var energia = 1000//por default todos los objetos tienen 1000 de energia
 
 def recibeDanio(valor: Int):Unit ={
-  energia=energia-valor
+  energia = energia-valor
 }
 
-
+def peso(gravedad : Int) : Int = {
+  masa * gravedad
+}
 
 }

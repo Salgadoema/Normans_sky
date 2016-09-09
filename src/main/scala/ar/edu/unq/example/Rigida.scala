@@ -5,9 +5,9 @@ package ar.edu.unq.example
   */
 trait Rigida extends Mochila {
 
-  var pocDeProteccion:Int
+  var porcDeProteccion: Int
 
-  def getPorcDeProteccion = pocDeProteccion
+  def getPorcDeProteccion = porcDeProteccion
 
   override def proteccionAlGolpeDe(golpe:Int): Int = {
     golpe*getPorcDeProteccion/100

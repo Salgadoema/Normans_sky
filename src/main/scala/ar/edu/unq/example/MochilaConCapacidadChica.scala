@@ -5,12 +5,11 @@ package ar.edu.unq.example
   */
 class MochilaConCapacidadChica extends Mochila {
 
-  val capacidadMaxima: Int=40000
-   var capacidadLibre: Int =capacidadMaxima
+  val capacidadMaxima: Int = 40000
+  var capacidadLibre: Int = capacidadMaxima
 
   def actualizaCapacidadLibre(objetoRecolectable: ObjetoRecolectable) ={
     capacidadLibre = capacidadLibre - objetoRecolectable.obtenerVolumen()
   }
-
 
 }

@@ -15,7 +15,7 @@ abstract class Mochila {
   }
 
   def proteccionAlGolpeDe(golpe: Int): Int = {
-    return golpe
+    golpe
   }
 
   def recibeGolpe(valor: Int):Unit={
@@ -44,15 +44,15 @@ abstract class Mochila {
   }
 
   def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
-   // var objetoTemp : ObjetoRecolectable = unObjetoRecolectable.compactarObjeto()
-    0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen()
-   // 0 <= capacidadLibre - objetoTemp.obtenerVolumen()
+    (0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen)&&
+      (0 <= pesoDisponible)
   }
+
+  def pesoDisponible :Int = 0
+
 
   def estaLlena() = {
     capacidadLibre == 0
 
   }
-}*/
-
 }

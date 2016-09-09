@@ -5,18 +5,13 @@ package ar.edu.unq.example
   */
 abstract class Traje {
 
-  def calcularConsumoAlRecorrerKms(kilometros: Double)
-  var capacidadMaxima: Double
-  var capacidadFinal: Double
-  var consumoPorKm: Double
-  * Created by damian on 02/09/16.
-  */
-abstract class Traje {
 
+
+  var consumoPorKm: Int
   var oxigenoDisponible : Int
+  var capacidadMaxima :Int
 
-  def camiar(distania : Int) : Unit={
+  def caminar(distania : Int) : Unit = { }
 
-  }
 
 }
