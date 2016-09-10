@@ -6,7 +6,7 @@ package ar.edu.unq.example
 class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
 
-  def capacidadOxigenoFinal(): Double = miTraje.oxigenoDisponible
+
 
 
   var miTraje:Traje = new TrajeLiviano
@@ -17,6 +17,7 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
     miTraje.caminar(km)
   }
 
+  def capacidadOxigenoFinal(): Double = miTraje.oxigenoDisponible
 
   def agregarTraje(unTraje: Traje) = miTraje=unTraje
 
@@ -27,16 +28,19 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
   def capacidadLibre = miMochila.capacidadLibre()
 
-
   def miEnergia = energia
 
   def atacar(unArma : Arma) : Int = {
-    0
+    unArma.usarArma
   }
 
   def recibirDanho(unDanho : Int) : Unit = {
     energia = energia - proteccionEscudo(unDanho)
   }
 
+
+
   def proteccionEscudo(unDanho : Int) : Int = 0
+
+
 }

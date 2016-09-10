@@ -5,13 +5,20 @@ package ar.edu.unq.example
   */
 trait  CapacidadDeAlmacenamientoPorPeso extends Mochila{
 
-  val pesoMaximo: Int = 10000
+  val pesoMaximo: Int = 1000
   var pesoLibre: Int = pesoMaximo
 
   def actualizarPeso(unObjetoRecolectable : ObjetoRecolectable, g : Int) : Unit = {
     pesoLibre = pesoLibre - unObjetoRecolectable.peso(g)
   }
+  override def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
+    (0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen) &&
+      (0 <= pesoLibre)
+  }
 
-  override def pesoDisponible: Int = pesoLibre
+ override def estaLlena() ={
+   capacidadLibre == 0 ||
+     pesoLibre == 0
+ }
 
 }

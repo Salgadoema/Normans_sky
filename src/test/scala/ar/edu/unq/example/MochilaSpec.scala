@@ -210,7 +210,7 @@ class MochilaSpec extends BaseSpec{
   val unaMochila = new MochilaConCapacidadChica with CapacidadDeAlmacenamientoPorPeso with CuerpoCeleste
       {override var gravedad: Int = 15}
     unaMochila.guardarObjeto(unObjeto)
-  unaMochila.objetosRecolectados shouldBe List()
+  unaMochila.objetosRecolectados shouldBe List.empty[ObjetoRecolectable]
   }
 */
 

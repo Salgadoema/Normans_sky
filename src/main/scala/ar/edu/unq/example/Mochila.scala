@@ -44,12 +44,8 @@ abstract class Mochila {
   }
 
   def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
-    (0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen)&&
-      (0 <= pesoDisponible)
+    0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen
   }
-
-  def pesoDisponible :Int = 0
-
 
   def estaLlena() = {
     capacidadLibre == 0
