@@ -12,4 +12,8 @@ class MochilaConCapacidadChica extends Mochila {
     capacidadLibre = capacidadLibre - objetoRecolectable.obtenerVolumen()
   }
 
+  def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
+    0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen
+  }
+
 }

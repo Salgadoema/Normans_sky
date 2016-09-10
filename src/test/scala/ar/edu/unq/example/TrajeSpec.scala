@@ -27,7 +27,7 @@ class TrajeSpec extends BaseSpec{
 
     val unTrajeLiviano = new TrajeLiviano
     unTrajeLiviano.oxigenoDisponible shouldBe 1500
-    unTrajeLiviano.caminar(100)
+    unTrajeLiviano.caminar(100, 0)
     unTrajeLiviano.oxigenoDisponible shouldBe 1490
   }
 
@@ -35,7 +35,7 @@ class TrajeSpec extends BaseSpec{
 
     val unTrajeLiviano = new TrajeLiviano
     unTrajeLiviano.oxigenoDisponible shouldBe 1500
-    unTrajeLiviano.caminar(60)
+    unTrajeLiviano.caminar(60, 0)
     unTrajeLiviano.oxigenoDisponible shouldBe 1491
   }
 
@@ -43,7 +43,7 @@ class TrajeSpec extends BaseSpec{
 
     val unTrajePesado = new TrajePesado
     unTrajePesado.oxigenoDisponible shouldBe 4000
-    unTrajePesado.caminar(50)
+    unTrajePesado.caminar(50, 0)
     unTrajePesado.oxigenoDisponible shouldBe 4000
   }
 
@@ -51,7 +51,7 @@ class TrajeSpec extends BaseSpec{
 
     val unTrajePesado = new TrajePesado
     unTrajePesado.oxigenoDisponible shouldBe 4000
-    unTrajePesado.caminar(120)
+    unTrajePesado.caminar(120, 0)
     unTrajePesado.oxigenoDisponible shouldBe 3986
   }
 

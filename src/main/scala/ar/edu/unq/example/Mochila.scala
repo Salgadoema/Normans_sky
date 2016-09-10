@@ -11,7 +11,7 @@ abstract class Mochila {
   var objetosRecolectados = ListBuffer[ObjetoRecolectable]()
 
   def energiaDeObjetos():ListBuffer[Int]  ={
-  objetosRecolectados.map { a => a.energia }
+    objetosRecolectados.map { a => a.energia }
   }
 
   def proteccionAlGolpeDe(golpe: Int): Int = {
@@ -29,8 +29,6 @@ abstract class Mochila {
     objetosRecolectados += objetoRecolectable
   }
 
-
-
   def guardarObjeto(objetoRecolectable: ObjetoRecolectable) {
 
     if (!estaLlena() && puedoGuardar(objetoRecolectable)) {
@@ -43,15 +41,18 @@ abstract class Mochila {
         "\nCapacidad Libre:" + capacidadLibre + "cc3")
   }
 
-  def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
-    0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen
+  def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean
+  //Este metodo esta como abstracto y en las 3 subclases hace lo mismo
+  //Estoy repitiendo código a lo pavote, pero me descajeta lo del peso a futuro
+  //hay q resolverlo con los traits y no me está saliendo
+
+
+  def estaLlena() : Boolean= {
+    capacidadLibre == 0 ||
+    pesoMochila == 0
   }
 
-  def estaLlena() = {
-    capacidadLibre == 0
-
-  }
-
-  def pesoMochila : Int = 0
-
+  def pesoMochila : Int = 1
+  //Esto tmb está mal, hay que resolverlo con los traits pero no me estaría
+  // funcionando como quisiera
 }
