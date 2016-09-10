@@ -21,4 +21,8 @@ trait  CapacidadDeAlmacenamientoPorPeso extends Mochila{
      pesoLibre == 0
  }
 
+  override def pesoMochila: Int = {
+    pesoMaximo - pesoLibre
+  }
+
 }

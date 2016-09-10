@@ -51,4 +51,7 @@ abstract class Mochila {
     capacidadLibre == 0
 
   }
+
+  def pesoMochila : Int = 0
+
 }
