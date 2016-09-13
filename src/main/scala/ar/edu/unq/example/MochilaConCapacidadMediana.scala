@@ -14,7 +14,7 @@ class MochilaConCapacidadMediana extends Mochila{
   def actualizaCapacidadLibre(objetoRecolectable: ObjetoRecolectable) ={
     capacidadLibre = capacidadLibre - objetoRecolectable.obtenerVolumen()
   }
-  def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
+  override def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
     0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen
   }
 

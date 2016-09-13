@@ -21,4 +21,6 @@ class MochilaConCapacidadChica extends Mochila {
     pesoLibre = pesoLibre - unObjetoRecolectable.peso(g)
     pesoTotal=pesoMaximo-pesoLibre
   }
+
+
 }

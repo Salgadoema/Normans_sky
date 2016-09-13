@@ -81,7 +81,7 @@ class PersonajeSpec extends BaseSpec {
 
 
 
-*/
+
 
   " personaje Traje Liviano pregunto por la capacidad Oxigeno Final" should "1490" in {
 
@@ -141,11 +141,84 @@ class PersonajeSpec extends BaseSpec {
     unaMochila.actualizarPeso(objetoRecolectable,4)
     unPersonaje.setCuerpoCeleste(cuerpoCeleste)
     unPersonaje.recolectarObjeto(objetoRecolectable)
-    unPersonaje.propulsarXTiempo(unaMochila,10)
+    //unPersonaje.propulsarXTiempo(unaMochila,10)
 
     unPersonaje.miConsumoPorPropulsion shouldBe (2680)
     unPersonaje.miAlturaPorPropulsion shouldBe(5)
 
   }
+
+*/
+  " personaje Con escudo con proteccion 100 atacan con 50 la energia proteccion restante " should "50" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unEscudo = new Escudo(100)
+    unPersonaje.agregarEscudo(unEscudo)
+    unPersonaje.recibirDanho(50)
+    unPersonaje.nivelDeProteccion() shouldBe(50)
+
+  }
+
+  " personaje Con escudo con proteccion 100 atacan con 150 la energia proteccion restante " should "50" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unEscudo = new Escudo(100)
+    unPersonaje.agregarEscudo(unEscudo)
+    unPersonaje.recibirDanho(150)
+    unPersonaje.nivelDeProteccion() shouldBe(0)
+
+  }
+
+  " personaje Con escudo Recargable con proteccion 100 atacan con 50 la energia proteccion restante al caminar 10Km" should "150" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unEscudo = new Escudo(100) with Recargable
+    unPersonaje.agregarEscudo(unEscudo)
+    unPersonaje.recibirDanho(50)
+    unPersonaje.caminarKms(10)
+    unPersonaje.nivelDeProteccion shouldBe(150)
+
+  }
+
+  " personaje Con escudo Recargable con proteccion 100 atacan con 50 la energia proteccion restante al caminar 1Km" should "150" in {
+
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val unPersonaje = new Personaje(150, unaMochila)
+    val unEscudo = new Escudo(100) with Recargable
+    unPersonaje.agregarEscudo(unEscudo)
+    unPersonaje.recibirDanho(50)
+    unPersonaje.caminarKms(1)
+    unPersonaje.nivelDeProteccion shouldBe(60)
+
+  }
+
+
+  " personaje Con escudo Recargable y Reflector de daño con proteccion 100 atacan con 50 lakk energia proteccion " should "50" in {
+
+    val unaMochila = new MochilaConCapacidadGrande
+    val otraMochila = new MochilaConCapacidadChica
+    val unPersonaje = new Personaje(150, unaMochila)
+    val otroPersonaje= new Personaje(150, otraMochila)
+    val unEscudo = new Escudo(100) with Recargable with ReflectorDeDanho
+    val otroEscudo = new Escudo(100)
+
+    unPersonaje.agregarEscudo(unEscudo)
+    otroPersonaje.agregarEscudo(otroEscudo)
+    unPersonaje.porcentajeDeReflexion(5)
+    unPersonaje.recibirDanho(50)
+    otroPersonaje.recibirDanho(unPersonaje.reflejarDanho())
+
+
+    unPersonaje.nivelDeProteccion shouldBe(50)
+    otroPersonaje.nivelDeProteccion shouldBe (98)
+  }
+
 
 }
