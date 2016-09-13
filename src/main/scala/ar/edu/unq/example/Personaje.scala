@@ -22,8 +22,9 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
   var cuerpoCelesteDondeEstoy : CuerpoCeleste = _
   val miMochila = unaMochila
 
-  def caminarKms(km: Int) = {
-    miTraje.caminar(km)
+  def caminarKms(km: Int): Unit = {
+
+    miTraje.caminar(km, miMochila.pesoMochila)
   }
 
   def capacidadOxigenoFinal(): Double = miTraje.oxigenoDisponible
@@ -49,8 +50,6 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
   def recibirDanho(unDanho : Int) : Unit = {
     energia = energia - proteccionEscudo(unDanho)
   }
-
-
 
   def proteccionEscudo(unDanho : Int) : Int = 0
 

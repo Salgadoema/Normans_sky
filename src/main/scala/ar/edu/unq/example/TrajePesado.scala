@@ -11,15 +11,19 @@ class TrajePesado extends Traje{
         oxigenoDisponible = capacidadMaxima
   }
 
-  def reacrgarOxigeno(): Unit ={
+  def recargarOxigeno(): Unit ={
     oxigenoDisponible = oxigenoDisponible + 10
     controlarPresionOxigeno()
   }
 
-  override def caminar(distancia: Int): Unit={
+  override def caminarDist(distancia :Int) :Unit ={
     oxigenoDisponible = oxigenoDisponible - (distancia * consumoPorKm / 100)
-    reacrgarOxigeno()
+    recargarOxigeno()
   }
 
+  override def caminarConPeso(distancia :Int , peso :Int) :Unit ={
+    super.caminar(distancia, peso)
+    recargarOxigeno()
+  }
 
 }
