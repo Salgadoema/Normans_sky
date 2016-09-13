@@ -49,5 +49,23 @@ class ObjetoRecolectableSpec extends BaseSpec {
 
   }
 
+  "Objeto con masa 60 le pregunto su peso en la tierra" should "588.42"in{
+    val objetoRecolectable = new ObjetoRecolectable(1000, "alga", 60) with Organico
+    val cuerpoCeleste = new CuerpoCeleste {
+      override var gravedad: Int = 10
+    }
+    objetoRecolectable.peso(cuerpoCeleste.gravedad) shouldBe(600)
 
+
+  }
+
+  "Objeto con masa 60 le pregunto su peso en Marte" should "588.42"in{
+    val objetoRecolectable = new ObjetoRecolectable(1000, "alga", 60) with Organico
+    val cuerpoCeleste = new CuerpoCeleste {
+      override var gravedad: Int =4
+    }
+    objetoRecolectable.peso(cuerpoCeleste.gravedad) shouldBe(240)
+
+
+  }
 }

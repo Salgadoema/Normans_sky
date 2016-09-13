@@ -21,6 +21,7 @@ class ObjetoRecolectable(capacidadObjeto: Int, nombre: String, masa: Int) {
   }
 
   var volumen=capacidadObjeto
+  var _peso=0
   val miNombre=nombre
   var porcentajeDeAgua=0
   def obtenerVolumen(): Int = volumen
@@ -31,7 +32,8 @@ def recibeDanio(valor: Int):Unit ={
 }
 
 def peso(gravedad : Int) : Int = {
-  masa * gravedad
+ _peso= masa * gravedad
+  return _peso
 }
 
 }

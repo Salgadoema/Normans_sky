@@ -8,6 +8,9 @@ import scala.collection.mutable.ListBuffer
 abstract class Mochila {
 
   def capacidadLibre(): Int
+  def pesoTotal():Int
+
+
   var objetosRecolectados = ListBuffer[ObjetoRecolectable]()
 
   def energiaDeObjetos():ListBuffer[Int]  ={
@@ -30,6 +33,7 @@ abstract class Mochila {
   }
 
 
+def actualizarPeso(unObjetoRecolectable : ObjetoRecolectable, g : Int)
 
   def guardarObjeto(objetoRecolectable: ObjetoRecolectable) {
 
@@ -37,6 +41,7 @@ abstract class Mochila {
 
       recolectarObjeto(objetoRecolectable)
       actualizaCapacidadLibre(objetoRecolectable)
+
     }
     else
       println(s"No se puede Guardar el objeto de " + objetoRecolectable.obtenerVolumen() + " cc3 de capacidad " +
@@ -44,11 +49,13 @@ abstract class Mochila {
   }
 
   def puedoGuardar(unObjetoRecolectable: ObjetoRecolectable): Boolean = {
-    0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen
+    0 <= capacidadLibre - unObjetoRecolectable.obtenerVolumen  &&
+      (0 <= unObjetoRecolectable._peso)
   }
 
   def estaLlena() = {
     capacidadLibre == 0
+
 
   }
 }
