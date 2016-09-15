@@ -8,25 +8,21 @@ import scala.xml.Null
   */
 class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
+  var miTraje:Traje = new TrajeLiviano
+  var cuerpoCelesteDondeEstoy : CuerpoCeleste = _
+  var miMochila = unaMochila
+  var miEscudo: Escudo= new Escudo(0)
+  var elPorcentajeDeReflexion:Int =0
+  var poderDeAtaque : Int = 1
 
   def recibirDanhoDe(danho: Int, atacante: Personaje) : Personaje={
     recibirDanho(danho)
-    miEscudo.reacciona(danho,atacante)
-
+    miEscudo.reacciona(danho,atacante,this)
   }
-
 
   def reflejarDanho(): Int = {
     elPorcentajeDeReflexion * energia/100
   }
-
-
-  var miTraje:Traje = new TrajeLiviano
-  var cuerpoCelesteDondeEstoy : CuerpoCeleste = _
-  val miMochila = unaMochila
-  var miEscudo: Escudo= new Escudo(0)
-  var elPorcentajeDeReflexion:Int =0
-
 
   def agregarEscudo(unEscudo: Escudo) =
     miEscudo=unEscudo
@@ -34,25 +30,19 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
  def porcentajeDeReflexion(porcentaje: Int) =
    elPorcentajeDeReflexion= miEscudo.porcentajeDeReflexion(porcentaje)
 
-
-
-
   def setCuerpoCeleste(cuerpoCeleste: CuerpoCeleste ) =
     cuerpoCelesteDondeEstoy = cuerpoCeleste
 
   def nivelDeProteccion(): Int ={
-
    miEscudo.proteccion
-
   }
-
 
   def caminarKms(km: Int): Unit = {
     miTraje.caminar(km,20)
     miTraje.caminar(km, miMochila.pesoTotal)
-
-     miEscudo.recargar(km)
+    miEscudo.recargar(km)
   }
+
   def capacidadOxigenoFinal(): Double = miTraje.oxigenoDisponible
 
   def agregarTraje(unTraje: Traje) = miTraje=unTraje
@@ -63,23 +53,16 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
   def capacidadLibre = miMochila.capacidadLibre()
 
-
-
-
-
   def atacar(unArma : Arma) : Int = {
     unArma.usarArma
   }
 
-    def recibirDanho(unDanho : Int) : Unit = {
-      energia = energia - proteccionEscudo(unDanho)
-    }
+  def recibirDanho(unDanho : Int) : Unit = {
+    energia = energia + proteccionEscudo(unDanho)
+  }
 
-    def proteccionEscudo(unDanho : Int) : Int = {
-
-      miEscudo.proteccionEscudo(unDanho)
-    }
-
-
+  def proteccionEscudo(unDanho : Int) : Int = {
+    miEscudo.proteccionEscudo(unDanho)
+  }
 
 }

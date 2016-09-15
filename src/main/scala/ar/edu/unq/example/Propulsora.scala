@@ -25,13 +25,11 @@ trait Propulsora extends Mochila {
 
   def consumoPorPropulsion(tiempo:Int): Int ={
       combustible = combustible - tiempo * pesoTotal
-      return combustible
-
-
+      combustible
   }
 
   def posicionEnEjeZ(tiempo: Int) : Int = {
     altura=altura+ tiempo /2
-    return altura
+    altura
   }
 }

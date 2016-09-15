@@ -17,8 +17,7 @@ class TrajeLiviano extends Traje{
   }
 
   override def caminarConPeso(distancia :Int , peso :Int) :Unit ={
-    oxigenoDisponible = oxigenoDisponible - (distancia * peso/2)
-    //nota: no voy a implementar aca la raiz cuadrada =S
+    oxigenoDisponible = oxigenoDisponible - (distancia * peso / Math.sqrt(distancia))toInt
   }
 //tendría que haber un metodo q revise el nivel de oxigeno desp de
 // caminar y que si no tiene se muera el personaje

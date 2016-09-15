@@ -5,8 +5,8 @@ package ar.edu.unq.example
   */
 class Escudo(proteccion_ :Int) {
 
-  def reacciona(danho: Int, atacante: Personaje): Personaje =
-    return atacante
+  def reacciona(danho: Int, atacante: Personaje, defensor: Personaje): Personaje =
+     atacante
 
 
   def porcentajeDeReflexion(porcentaje: Int): Int = {0}
@@ -19,13 +19,14 @@ class Escudo(proteccion_ :Int) {
   }
 
   def proteccionEscudo(unDanho : Int) : Int = {
-    if (0 <= proteccion - unDanho) {
+    if (proteccion >= unDanho) {
       proteccion = proteccion - unDanho
-      proteccion
+      0
     }
     else{
-      proteccion =0
-      0
+      var ret = proteccion - unDanho
+      proteccion = 0
+      ret
     }
 
   }
