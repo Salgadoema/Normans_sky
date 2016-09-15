@@ -4,12 +4,12 @@ package ar.edu.unq.example
   * Created by user on 28/08/2016.
   */
 class PersonajeSpec extends BaseSpec {
-/*
+
   "creo un Personaje Nuevo con Energia" should "saber su energia" in {
     val unaMochila = new  MochilaConCapacidadChica
     val unPersonaje = new Personaje(150, unaMochila)
 
-    unPersonaje.miEnergia shouldBe (150)
+    unPersonaje.energia shouldBe (150)
   }
 
   "al personaje se le asigna una mochila chica y cuando le pregunto por la capacidad de la mochila" should "40000cc3" in {
@@ -48,7 +48,7 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadChica
       val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000)
+      val objetoRecolectable = new ObjetoRecolectable(1000,"pidra", 20)
       unPersonaje.recolectarObjeto(objetoRecolectable)
       unPersonaje.capacidadLibre shouldBe (39000)
 
@@ -60,7 +60,7 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadMediana
       val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000)
+      val objetoRecolectable = new ObjetoRecolectable(1000,"pidra", 20)
       unPersonaje.recolectarObjeto(objetoRecolectable)
       unPersonaje.capacidadLibre shouldBe (59000)
 
@@ -72,7 +72,7 @@ class PersonajeSpec extends BaseSpec {
 
       val unaMochila = new MochilaConCapacidadGrande
         val unPersonaje = new Personaje(150, unaMochila )
-      val objetoRecolectable = new ObjetoRecolectable(1000)
+      val objetoRecolectable = new ObjetoRecolectable(1000,"pidra", 20)
       unPersonaje.recolectarObjeto(objetoRecolectable)
         unPersonaje.capacidadLibre shouldBe (89000)
 
@@ -90,8 +90,8 @@ class PersonajeSpec extends BaseSpec {
     val unPersonaje = new Personaje(150, unaMochila)
     val unTrajeLiviano = new TrajeLiviano
     unPersonaje.agregarTraje(unTrajeLiviano)
-    unPersonaje.caminarKms(1000)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (1490)
+    unPersonaje.caminarKms(100)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (480)
   }
 
   " personaje Traje Liviano pregunto por la capacidad Oxigeno Final" should "1500" in {
@@ -102,10 +102,10 @@ class PersonajeSpec extends BaseSpec {
     val unTrajeLiviano = new TrajeLiviano
     unPersonaje.agregarTraje(unTrajeLiviano)
     unPersonaje.caminarKms(1)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (1500)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (1490)
   }
 
-  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "4000" in {
+  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3858" in {
 
 
     val unaMochila = new MochilaConCapacidadGrande
@@ -113,10 +113,10 @@ class PersonajeSpec extends BaseSpec {
     val unTrajePesado = new TrajePesado
     unPersonaje.agregarTraje(unTrajePesado)
     unPersonaje.caminarKms(50)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (4000)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (3858)
   }
 
-  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3986" in {
+  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3704" in {
 
 
     val unaMochila = new MochilaConCapacidadGrande
@@ -124,31 +124,9 @@ class PersonajeSpec extends BaseSpec {
     val unTrajePesado = new TrajePesado
     unPersonaje.agregarTraje(unTrajePesado)
     unPersonaje.caminarKms(120)
-    unPersonaje.capacidadOxigenoFinal() shouldBe (3986)
+    unPersonaje.capacidadOxigenoFinal() shouldBe (3704)
   }
 
-  " personaje Traje Pesado Mochila propulsora con peso 268 y que se propulsa 10 segundos su consumo y altura " should "2680 y 5 respectivamente"in {
-
-
-    val unaMochila = new MochilaConCapacidadGrande with Propulsora
-    val unPersonaje = new Personaje(150, unaMochila)
-    val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
-    objetoRecolectable.setValorDecompacatacion(100)
-    val cuerpoCeleste = new CuerpoCeleste {
-      override var gravedad: Int =4
-    }
-
-    unaMochila.actualizarPeso(objetoRecolectable,4)
-    unPersonaje.setCuerpoCeleste(cuerpoCeleste)
-    unPersonaje.recolectarObjeto(objetoRecolectable)
-    //unPersonaje.propulsarXTiempo(unaMochila,10)
-
-    unPersonaje.miConsumoPorPropulsion shouldBe (2680)
-    unPersonaje.miAlturaPorPropulsion shouldBe(5)
-
-  }
-
-*/
   " personaje Con escudo con proteccion 100 atacan con 50 la energia proteccion restante " should "50" in {
 
 
@@ -157,7 +135,7 @@ class PersonajeSpec extends BaseSpec {
     val unEscudo = new Escudo(100)
     unPersonaje.agregarEscudo(unEscudo)
     unPersonaje.recibirDanho(50)
-    unPersonaje.nivelDeProteccion() shouldBe(50)
+    unPersonaje.energia shouldBe(50)
 
   }
 
@@ -169,7 +147,7 @@ class PersonajeSpec extends BaseSpec {
     val unEscudo = new Escudo(100)
     unPersonaje.agregarEscudo(unEscudo)
     unPersonaje.recibirDanho(150)
-    unPersonaje.nivelDeProteccion() shouldBe(0)
+    unPersonaje.energia shouldBe(0)
 
   }
 
@@ -182,7 +160,7 @@ class PersonajeSpec extends BaseSpec {
     unPersonaje.agregarEscudo(unEscudo)
     unPersonaje.recibirDanho(50)
     unPersonaje.caminarKms(10)
-    unPersonaje.nivelDeProteccion shouldBe(150)
+    unPersonaje.energia shouldBe(150)
 
   }
 
@@ -205,20 +183,41 @@ class PersonajeSpec extends BaseSpec {
     val unaMochila = new MochilaConCapacidadGrande
     val otraMochila = new MochilaConCapacidadChica
     val unPersonaje = new Personaje(150, unaMochila)
-    val otroPersonaje= new Personaje(150, otraMochila)
+    var otroPersonaje = new Personaje(150, otraMochila)
     val unEscudo = new Escudo(100) with Recargable with ReflectorDeDanho
     val otroEscudo = new Escudo(100)
 
+    unEscudo.porcentajeDeReflexion(5)
     unPersonaje.agregarEscudo(unEscudo)
     otroPersonaje.agregarEscudo(otroEscudo)
-    unPersonaje.porcentajeDeReflexion(5)
-    unPersonaje.recibirDanho(50)
-    otroPersonaje.recibirDanho(unPersonaje.reflejarDanho())
 
+    otroPersonaje= unPersonaje.recibirDanhoDe(50, otroPersonaje)
+    unPersonaje.energia shouldBe(50)
+    otroPersonaje.energia shouldBe(98)
 
-    unPersonaje.nivelDeProteccion shouldBe(50)
-    otroPersonaje.nivelDeProteccion shouldBe (98)
   }
+/*
+
+    " personaje Traje Pesado Mochila propulsora con peso 268 y que se propulsa 10 segundos su consumo y altura " should "2680 y 5 respectivamente"in {
 
 
+      val unaMochila = new MochilaConCapacidadGrande with Propulsora
+      val unPersonaje = new Personaje(150, unaMochila)
+      val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
+      objetoRecolectable.setValorDecompacatacion(100)
+      val cuerpoCeleste = new CuerpoCeleste {
+        override var gravedad: Int =4
+      }
+
+      unaMochila.actualizarPeso(objetoRecolectable,4)
+      unPersonaje.setCuerpoCeleste(cuerpoCeleste)
+      unPersonaje.recolectarObjeto(objetoRecolectable)
+      //unPersonaje.propulsarXTiempo(unaMochila,10)
+
+      unPersonaje.miConsumoPorPropulsion shouldBe (2680)
+      unPersonaje.miAlturaPorPropulsion shouldBe(5)
+
+    }
+
+  */
 }

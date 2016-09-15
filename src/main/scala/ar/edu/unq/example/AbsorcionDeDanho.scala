@@ -4,7 +4,7 @@ package ar.edu.unq.example
   * Created by damian on 09/09/16.
   */
 trait AbsorcionDeDanho extends Personaje{
-
+/*
   var factorDeAbsorcion : Int
   var incrementoDeAtaque : Int
 
@@ -24,5 +24,5 @@ trait AbsorcionDeDanho extends Personaje{
     energia = energia - proteccionEscudo(unDanho)
     setIncrementoDeAtaque(unDanho * factorDeAbsorcion)
   }
-
+*/
 }

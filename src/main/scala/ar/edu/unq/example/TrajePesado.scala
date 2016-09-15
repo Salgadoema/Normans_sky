@@ -13,7 +13,7 @@ class TrajePesado extends Traje{
 
   def recargarOxigeno(): Unit ={
     oxigenoDisponible = oxigenoDisponible + 10
-    controlarPresionOxigeno()
+   controlarPresionOxigeno()
   }
 
   override def caminarDist(distancia :Int) :Unit ={
@@ -22,8 +22,10 @@ class TrajePesado extends Traje{
   }
 
   override def caminarConPeso(distancia :Int , peso :Int) :Unit ={
-    super.caminar(distancia, peso)
-    recargarOxigeno()
+    caminarDist(distancia)
+
+    oxigenoDisponible = oxigenoDisponible - distancia*peso / Math.sqrt(distancia).toInt
+    //recargarOxigeno()
   }
 
 }

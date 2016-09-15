@@ -3,7 +3,7 @@ package ar.edu.unq.example
 /**
   * Created by user on 30/08/2016.
   */
-class ObjetoRecolectableSpec extends BaseSpec {
+class ObjetoRecolectSpec extends BaseSpec {
 
   "un objeto recolectable su obtenerVolumen()" should "1000 cc3" in {
 

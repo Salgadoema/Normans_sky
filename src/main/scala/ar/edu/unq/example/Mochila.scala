@@ -8,7 +8,7 @@ import scala.collection.mutable.ListBuffer
 abstract class Mochila {
 
   def capacidadLibre(): Int
-  //def pesoTotal_():Int
+ // def pesoTotal_():Int
   var pesoTotal : Int
 
 

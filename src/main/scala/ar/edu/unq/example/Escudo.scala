@@ -3,23 +3,34 @@ package ar.edu.unq.example
 /**
   * Created by damian on 08/09/16.
   */
-trait Escudo extends Personaje{
+class Escudo(proteccion_ :Int) {
 
-  var proteccion :Int
+  def reacciona(danho: Int, atacante: Personaje): Personaje =
+    return atacante
 
-  def Escudo(valor: Int): Unit = {
+
+  def porcentajeDeReflexion(porcentaje: Int): Int = {0}
+
+
+  var proteccion = proteccion_
+
+  def escudo(valor: Int): Unit = {
     proteccion = valor
   }
 
-  override def proteccionEscudo(unDanho : Int) : Int = {
+  def proteccionEscudo(unDanho : Int) : Int = {
     if (0 <= proteccion - unDanho) {
       proteccion = proteccion - unDanho
       proteccion
     }
     else{
-      proteccion = proteccion - unDanho
+      proteccion =0
       0
     }
 
   }
+
+
+   def recargar(km: Int): Unit = {}
+
 }

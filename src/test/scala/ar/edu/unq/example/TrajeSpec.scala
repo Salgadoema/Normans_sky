@@ -52,7 +52,7 @@ class TrajeSpec extends BaseSpec{
     val unTrajePesado = new TrajePesado
     unTrajePesado.oxigenoDisponible shouldBe 4000
     unTrajePesado.caminar(120, 0)
-    unTrajePesado.oxigenoDisponible shouldBe 3986
+    unTrajePesado.oxigenoDisponible shouldBe 3972
   }
 
 

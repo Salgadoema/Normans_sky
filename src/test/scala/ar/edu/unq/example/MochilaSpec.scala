@@ -238,7 +238,7 @@ class MochilaSpec extends BaseSpec{
     unaMochila.pesoMaximo shouldBe (1000)
   }
 
-  "unaMochila propulsora con peso 268 y que se propulsa 10 segundos su consumo y altura " should "2680 y 5 respectivamente"in{
+  "unaMochila propulsora con peso 268 y que se propulsa 10 segundos su consumo y altura " should "1320 y 5 respectivamente"in{
 
     val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio with Propulsora
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
@@ -249,12 +249,31 @@ class MochilaSpec extends BaseSpec{
 
     unaMochila.actualizarPeso(objetoRecolectable,cuerpoCeleste.gravedad)
 
-    unaMochila.propulsarXTiempo(10,unaMochila.pesoTotal)
+    unaMochila.propulsarXTiempo(10)
     unaMochila.pesoTotal shouldBe(268)
-   // unaMochila.pesoAcumulado(4) shouldBe(268)
     unaMochila.pesoLibre shouldBe (732)
-    unaMochila.consumo shouldBe(2680)
+    unaMochila.combustible shouldBe(1320)
     unaMochila.altura shouldBe(5)
+  }
+
+  "unaMochila propulsora con peso 268 y que se propulsa 2y2 segundos su consumo y altura " should "1340 y 5 respectivamente"in{
+
+    val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio with Propulsora
+    val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
+    objetoRecolectable.setValorDecompacatacion(100)
+    val cuerpoCeleste = new CuerpoCeleste {
+      override var gravedad: Int =4
+    }
+
+    unaMochila.actualizarPeso(objetoRecolectable,cuerpoCeleste.gravedad)
+
+    unaMochila.propulsarXTiempo(2)
+    unaMochila.propulsarXTiempo(2)
+
+    unaMochila.pesoTotal shouldBe(268)
+    unaMochila.pesoLibre shouldBe (732)
+    unaMochila.combustible shouldBe(2928)
+    unaMochila.altura shouldBe(2)
   }
 }
 
