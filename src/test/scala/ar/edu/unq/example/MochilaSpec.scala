@@ -10,8 +10,8 @@ class MochilaSpec extends BaseSpec{
 
   val unaMochila= new MochilaConCapacidadChica
 
-  unaMochila.capacidadMaxima shouldBe (40000)
-  unaMochila.capacidadLibre shouldBe(40000)
+  unaMochila.capacidadMaxima shouldBe 40000
+  unaMochila.capacidadLibre shouldBe 40000
 
 }
 
@@ -19,26 +19,26 @@ class MochilaSpec extends BaseSpec{
 
     val unaMochila= new MochilaConCapacidadMediana
 
-    unaMochila.capacidadMaxima shouldBe (60000)
+    unaMochila.capacidadMaxima shouldBe 60000
   }
 
   "una mochila Grande" should "su capacidad 90000 cc3" in{
 
     val unaMochila= new MochilaConCapacidadGrande
 
-    unaMochila.capacidadMaxima shouldBe (90000)
+    unaMochila.capacidadMaxima shouldBe 90000
   }
 
   "una mochila chica despues de guardar objeto de 1000 su capacidadlibre" should " 39000 cc3" in{
 
     val unaMochila= new MochilaConCapacidadChica
     val objetoRecolectable = new ObjetoRecolectable(1000,"Roca",10)
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
 
-    unaMochila.capacidadLibre shouldBe (39000)
+    unaMochila.capacidadLibre shouldBe 39000
 
   }
 
@@ -50,17 +50,15 @@ class MochilaSpec extends BaseSpec{
     val otroObjetoRecolectable = new ObjetoRecolectable(5000,"Planta",9)
     val objetoRecolectable2 = new ObjetoRecolectable(34000, "Termotanque",9)
 
-
-
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
     unaMochila.guardarObjeto(otroObjetoRecolectable)
     unaMochila.guardarObjeto(objetoRecolectable2)
 
-    unaMochila.capacidadLibre shouldBe (0)
-    unaMochila.estaLlena shouldBe (true)
+    unaMochila.capacidadLibre shouldBe 0
+    unaMochila.estaLlena shouldBe true
   }
 
   "una mochila chica llena no recibe mas objetos" should "Indica mochila llena" in{
@@ -70,15 +68,15 @@ class MochilaSpec extends BaseSpec{
     val otroObjetoRecolectable = new ObjetoRecolectable(5000, "Planta",9)
     val objetoRecolectable2 = new ObjetoRecolectable(34000, "Termotanque",9)
 
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
     unaMochila.guardarObjeto(otroObjetoRecolectable)
     unaMochila.guardarObjeto(objetoRecolectable2)
 
-    unaMochila.capacidadLibre shouldBe (0)
-    unaMochila.estaLlena shouldBe (true)
+    unaMochila.capacidadLibre shouldBe 0
+    unaMochila.estaLlena shouldBe true
   }
 
   "una mochila chica no llena no puede recibe objetos mas grandes que su capacidad libre" should "Indica mochila llena" in{
@@ -87,15 +85,15 @@ class MochilaSpec extends BaseSpec{
     val objetoRecolectable = new ObjetoRecolectable(1000,"roca",9)
     val otroObjetoRecolectable = new ObjetoRecolectable(5000, "Planta",87)
     val objetoRecolectable2 = new ObjetoRecolectable(32000, "Auto",87)
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
     unaMochila.guardarObjeto(otroObjetoRecolectable)
     unaMochila.guardarObjeto(objetoRecolectable2)
 
-    unaMochila.capacidadLibre shouldBe (2000)
-    unaMochila.estaLlena shouldBe (false)
+    unaMochila.capacidadLibre shouldBe 2000
+    unaMochila.estaLlena shouldBe false
 
     unaMochila.guardarObjeto(otroObjetoRecolectable)
   }
@@ -107,14 +105,14 @@ class MochilaSpec extends BaseSpec{
     val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio
 
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",34) with NoCompactable
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
 
-    unaMochila.capacidadLibre shouldBe (39000)
+    unaMochila.capacidadLibre shouldBe 39000
 
-    unaMochila.estaLlena shouldBe (false)
+    unaMochila.estaLlena shouldBe false
   }
 
   "una mochila chica Con CompactacionPorVacio guarda un objeto Compactable de 1000 y al preguntarle la capacidad libre" should "39500" in{
@@ -124,14 +122,14 @@ class MochilaSpec extends BaseSpec{
     val otraMochila = new MochilaConCapacidadChica
     otraMochila.guardarObjeto(objetoRecolectable)
 
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
 
-    unaMochila.capacidadLibre shouldBe (39500)
-    otraMochila.capacidadLibre shouldBe (39000)
-    unaMochila.estaLlena shouldBe (false)
+    unaMochila.capacidadLibre shouldBe 39500
+    otraMochila.capacidadLibre shouldBe 39000
+    unaMochila.estaLlena shouldBe false
   }
 
 
@@ -140,14 +138,14 @@ class MochilaSpec extends BaseSpec{
     val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
     objetoRecolectable.setValorDecompacatacion(100)
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
-    objetoRecolectable.obtenerVolumen() shouldBe(900)
+    objetoRecolectable.obtenerVolumen() shouldBe 900
 
-    unaMochila.capacidadLibre shouldBe (39100)
-    unaMochila.estaLlena shouldBe (false)
+    unaMochila.capacidadLibre shouldBe 39100
+    unaMochila.estaLlena shouldBe false
   }
 
   "una mochila chica Deshidratadora guarda un objeto Organico con porc de agua de 40 al deshidratarlo y preguntarle la capacidad libre" should "39500" in{
@@ -155,14 +153,14 @@ class MochilaSpec extends BaseSpec{
     val unaMochila= new MochilaConCapacidadChica with Deshidratadora
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",56) with Organico
     objetoRecolectable.setearPorcentajeDeAgua(50)
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
-    objetoRecolectable.obtenerVolumen() shouldBe(500)
+    objetoRecolectable.obtenerVolumen shouldBe 500
 
-    unaMochila.capacidadLibre shouldBe (39500)
-    unaMochila.estaLlena shouldBe (false)
+    unaMochila.capacidadLibre shouldBe 39500
+    unaMochila.estaLlena shouldBe false
   }
 
 
@@ -175,10 +173,9 @@ class MochilaSpec extends BaseSpec{
     objetoRecolectable.setValorDecompacatacion(100)
     unaMochila.guardarObjeto(objetoRecolectable)
 
-    unaMochila.energiaDeObjetos() shouldBe (List(1000))
+    unaMochila.energiaDeObjetos() shouldBe List(1000)
     unaMochila.recibeGolpe(100)
-    unaMochila.energiaDeObjetos shouldBe(List(950))
-//commit
+    unaMochila.energiaDeObjetos shouldBe List(950)
   }
 
 
@@ -190,7 +187,7 @@ class MochilaSpec extends BaseSpec{
     objetoRecolectable.setValorDecompacatacion(100)
     unaMochila.guardarObjeto(objetoRecolectable)
 
-    unaMochila.energiaDeObjetos() shouldBe (List(1000))
+    unaMochila.energiaDeObjetos() shouldBe List(1000)
     unaMochila.recibeGolpe(100)
     unaMochila.energiaDeObjetos shouldBe List(920)
 
@@ -206,14 +203,14 @@ class MochilaSpec extends BaseSpec{
     }
     objetoRecolectable.peso(cuerpoCeleste.gravedad)
     unaMochila.actualizarPeso(objetoRecolectable,cuerpoCeleste.gravedad)
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe (40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
     unaMochila.guardarObjeto(objetoRecolectable)
-    unaMochila.capacidadLibre shouldBe (39500)
+    unaMochila.capacidadLibre shouldBe 39500
 
-    unaMochila.estaLlena shouldBe (false)
-    unaMochila.pesoLibre shouldBe (820)
-    unaMochila.pesoMaximo shouldBe (1000)
+    unaMochila.estaLlena  shouldBe false
+    unaMochila.pesoLibre  shouldBe 820
+    unaMochila.pesoMaximo shouldBe 1000
   }
 
   "una mochila chica Con CompactacionPorVacio guarda un objeto SemiCompactable de 1000 con compactabilidad=100 y al preguntarle la capacidad libre en peso" should "732" in{
@@ -226,16 +223,16 @@ class MochilaSpec extends BaseSpec{
     }
     objetoRecolectable.peso(cuerpoCeleste.gravedad)
     unaMochila.actualizarPeso(objetoRecolectable,cuerpoCeleste.gravedad)
-    unaMochila.capacidadMaxima shouldBe (40000)
-    unaMochila.capacidadLibre shouldBe(40000)
+    unaMochila.capacidadMaxima shouldBe 40000
+    unaMochila.capacidadLibre shouldBe 40000
 
     unaMochila.guardarObjeto(objetoRecolectable)
-    objetoRecolectable.obtenerVolumen() shouldBe(900)
+    objetoRecolectable.obtenerVolumen() shouldBe 900
 
-    unaMochila.capacidadLibre shouldBe (39100)
-    unaMochila.estaLlena shouldBe (false)
-    unaMochila.pesoLibre shouldBe (732)
-    unaMochila.pesoMaximo shouldBe (1000)
+    unaMochila.capacidadLibre shouldBe 39100
+    unaMochila.estaLlena  shouldBe false
+    unaMochila.pesoLibre  shouldBe 732
+    unaMochila.pesoMaximo shouldBe 1000
   }
 
   "unaMochila propulsora con peso 268 y que se propulsa 10 segundos su consumo y altura " should "1320 y 5 respectivamente"in{
@@ -250,10 +247,10 @@ class MochilaSpec extends BaseSpec{
     unaMochila.actualizarPeso(objetoRecolectable,cuerpoCeleste.gravedad)
 
     unaMochila.propulsarXTiempo(10)
-    unaMochila.pesoTotal shouldBe(268)
-    unaMochila.pesoLibre shouldBe (732)
-    unaMochila.combustible shouldBe(1320)
-    unaMochila.altura shouldBe(5)
+    unaMochila.pesoTotal shouldBe 268
+    unaMochila.pesoLibre shouldBe 732
+    unaMochila.combustible shouldBe 1320
+    unaMochila.altura shouldBe 5
   }
 
   "unaMochila propulsora con peso 268 y que se propulsa 2y2 segundos su consumo y altura " should "1340 y 5 respectivamente"in{
@@ -270,10 +267,10 @@ class MochilaSpec extends BaseSpec{
     unaMochila.propulsarXTiempo(2)
     unaMochila.propulsarXTiempo(2)
 
-    unaMochila.pesoTotal shouldBe(268)
-    unaMochila.pesoLibre shouldBe (732)
-    unaMochila.combustible shouldBe(2928)
-    unaMochila.altura shouldBe(2)
+    unaMochila.pesoTotal shouldBe 268
+    unaMochila.pesoLibre shouldBe 732
+    unaMochila.combustible shouldBe 2928
+    unaMochila.altura shouldBe 2
   }
 }
 

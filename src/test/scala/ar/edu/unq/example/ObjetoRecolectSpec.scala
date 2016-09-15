@@ -54,7 +54,7 @@ class ObjetoRecolectSpec extends BaseSpec {
     val cuerpoCeleste = new CuerpoCeleste {
       override var gravedad: Int = 10
     }
-    objetoRecolectable.peso(cuerpoCeleste.gravedad) shouldBe(600)
+    objetoRecolectable.peso(cuerpoCeleste.gravedad) shouldBe 600
 
 
   }
@@ -64,7 +64,7 @@ class ObjetoRecolectSpec extends BaseSpec {
     val cuerpoCeleste = new CuerpoCeleste {
       override var gravedad: Int =4
     }
-    objetoRecolectable.peso(cuerpoCeleste.gravedad) shouldBe(240)
+    objetoRecolectable.peso(cuerpoCeleste.gravedad) shouldBe 240
 
 
   }

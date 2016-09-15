@@ -3,17 +3,26 @@ package ar.edu.unq.example
 /**
   * Created by damian on 09/09/16.
   */
-class ArmaDeFuego extends Arma{
+trait ArmaDeFuego extends Personaje{
 
-  var municionesDisponibles : Int= 3
-  override var danho: Int = 3
+  var cantDeBalas: Int = 6
+  poderDeAtaque = 3
 
-  override def usarArma: Int = {
-    if (municionesDisponibles >= 1){
-      municionesDisponibles = municionesDisponibles -1
-      super.usarArma
+  def recargarBalas (unasCuantasBalas : Int) : Unit = {
+    cantDeBalas = unasCuantasBalas
+  }
+
+  def usarArma(): Int = {
+    if (cantDeBalas >= 1) {
+      cantDeBalas = cantDeBalas - 1
+      poderDeAtaque
     }
+
     else 0
+  }
+
+  override def atacar(unPersonaje : Personaje) : Personaje = {
+    unPersonaje recibirDanhoDe(usarArma(), this)
   }
 
 }

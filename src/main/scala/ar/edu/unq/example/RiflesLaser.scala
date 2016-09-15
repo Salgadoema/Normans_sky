@@ -3,16 +3,12 @@ package ar.edu.unq.example
 /**
   * Created by damian on 09/09/16.
   */
-class RiflesLaser extends Arma{
+trait RiflesLaser extends Personaje{
 
-  var celdasDeEnergia : Int = 10
+  var celdasDeEnergia: Int = 10
 
-  def setCeldasDeEnergia (i : Int) : Unit = {
-    celdasDeEnergia = i
-  }
-
-  def RifleLaser(i : Int) : Unit ={
-    danho = i
+  def setCeldasDeEnergia (cantDeCeldas : Int) : Unit = {
+    celdasDeEnergia = cantDeCeldas
   }
 
   def usarArma(celdasDisponibles : Int): Int = {
@@ -25,8 +21,10 @@ class RiflesLaser extends Arma{
     else 0
   }
 
-  override var danho: Int = celdasDeEnergia
-
   def recargarLaser() : Unit = setCeldasDeEnergia(10)
+
+  override def atacar(unPersonaje : Personaje) : Personaje = {
+    unPersonaje recibirDanhoDe(usarArma(celdasDeEnergia), this)
+  }
 
 }
