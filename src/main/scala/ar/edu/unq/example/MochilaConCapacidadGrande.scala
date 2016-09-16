@@ -1,7 +1,7 @@
 package ar.edu.unq.example
 
 /**
-  * Created by user on 28/08/2016.
+  *
   */
 class MochilaConCapacidadGrande extends Mochila {
 
@@ -18,4 +18,6 @@ class MochilaConCapacidadGrande extends Mochila {
   def actualizarPeso(unObjetoRecolectable : ObjetoRecolectable, g : Int) : Unit = {
     pesoLibre = pesoLibre - unObjetoRecolectable.peso(g)
   }
+
+
 }

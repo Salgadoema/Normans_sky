@@ -1,7 +1,7 @@
 package ar.edu.unq.example
 
 /**
-  * Created by damian on 15/09/16.
+  *
   */
 trait ArmaRara extends Personaje{
 

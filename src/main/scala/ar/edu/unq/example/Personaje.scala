@@ -1,10 +1,7 @@
 package ar.edu.unq.example
 
-import scala.xml.Null
-
-
 /**
-  * Created by user on 28/08/2016.
+  *
   */
 class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
@@ -15,27 +12,15 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
   var elPorcentajeDeReflexion:Int =0
   var poderDeAtaque : Int = 1
 
-  def recibirDanhoDe(danho: Int, atacante: Personaje) : Personaje={
-    recibirDanho(danho)
-    miEscudo.reacciona(danho,atacante,this)
-  }
+  def reflejarDanho(): Int =  elPorcentajeDeReflexion * energia/100
 
-  def reflejarDanho(): Int = {
-    elPorcentajeDeReflexion * energia/100
-  }
+  def agregarEscudo(unEscudo: Escudo) = miEscudo=unEscudo
 
-  def agregarEscudo(unEscudo: Escudo) =
-    miEscudo=unEscudo
+  def porcentajeDeReflexion(porcentaje: Int) = elPorcentajeDeReflexion= miEscudo.porcentajeDeReflexion(porcentaje)
 
- def porcentajeDeReflexion(porcentaje: Int) =
-   elPorcentajeDeReflexion= miEscudo.porcentajeDeReflexion(porcentaje)
+  def setCuerpoCeleste(cuerpoCeleste: CuerpoCeleste ) = cuerpoCelesteDondeEstoy = cuerpoCeleste
 
-  def setCuerpoCeleste(cuerpoCeleste: CuerpoCeleste ) =
-    cuerpoCelesteDondeEstoy = cuerpoCeleste
-
-  def nivelDeProteccion(): Int ={
-   miEscudo.proteccion
-  }
+  def nivelDeProteccion(): Int = miEscudo.proteccion
 
   def caminarKms(km: Int): Unit = {
     miTraje.caminar(km,20)
@@ -47,22 +32,20 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
   def agregarTraje(unTraje: Traje) = miTraje=unTraje
 
-  def recolectarObjeto(objetoRecolectable: ObjetoRecolectable) = {
-    miMochila.guardarObjeto(objetoRecolectable)
-  }
+  def recolectarObjeto(objetoRecolectable: ObjetoRecolectable) = miMochila.guardarObjeto(objetoRecolectable)
 
   def capacidadLibre = miMochila.capacidadLibre()
 
-  def atacar(unPersonaje : Personaje) : Personaje = {
-    unPersonaje recibirDanhoDe(poderDeAtaque, this)
+  def recibirDanhoDe(danho: Int, atacante: Personaje) : Personaje={
+    recibirDanho(danho)
+    miEscudo.reacciona(danho,atacante,this)
   }
 
-  def recibirDanho(unDanho : Int) : Unit = {
-    energia = energia + proteccionEscudo(unDanho)
-  }
+  def atacar(unPersonaje : Personaje) : Personaje = unPersonaje recibirDanhoDe(poderDeAtaque, this)
 
-  def proteccionEscudo(unDanho : Int) : Int = {
-    miEscudo.proteccionEscudo(unDanho)
-  }
+  def recibirDanho(unDanho : Int) : Unit = energia = energia + proteccionEscudo(unDanho)
+
+  def proteccionEscudo(unDanho : Int) : Int =   miEscudo.proteccionEscudoAlRecibirDanhoDe(unDanho)
+
 
 }

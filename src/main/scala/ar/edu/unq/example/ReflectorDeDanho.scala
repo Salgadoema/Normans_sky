@@ -1,7 +1,7 @@
 package ar.edu.unq.example
 
 /**
-  * Created by user on 13/09/2016.
+  *
   */
 trait ReflectorDeDanho extends Escudo {
 

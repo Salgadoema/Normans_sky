@@ -1,7 +1,7 @@
 package ar.edu.unq.example
 
 /**
-  * Created by damian on 09/09/16.
+  *
   */
 trait ArmaDeFuego extends Personaje{
 
@@ -17,7 +17,6 @@ trait ArmaDeFuego extends Personaje{
       cantDeBalas = cantDeBalas - 1
       poderDeAtaque
     }
-
     else 0
   }
 

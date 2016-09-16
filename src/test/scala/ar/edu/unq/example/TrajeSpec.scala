@@ -47,12 +47,12 @@ class TrajeSpec extends BaseSpec{
     unTrajePesado.oxigenoDisponible shouldBe 4000
   }
 
-  "creo un Traje Pesado y cuando le pido la capacidad total luego de recorrer 120km " should "3986" in{
+  "creo un Traje Pesado y cuando le pido la capacidad total luego de recorrer 120km " should "3982" in{
 
     val unTrajePesado = new TrajePesado
     unTrajePesado.oxigenoDisponible shouldBe 4000
     unTrajePesado.caminar(120, 0)
-    unTrajePesado.oxigenoDisponible shouldBe 3972
+    unTrajePesado.oxigenoDisponible shouldBe 3982
   }
 
 

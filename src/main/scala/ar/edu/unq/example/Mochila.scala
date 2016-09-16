@@ -3,46 +3,34 @@ package ar.edu.unq.example
 import scala.collection.mutable.ListBuffer
 
 /**
-  * Created by user on 28/08/2016.
+  *
   */
 abstract class Mochila {
 
-  def capacidadLibre(): Int
- // def pesoTotal_():Int
+
   var pesoTotal : Int
-
-
   var objetosRecolectados = ListBuffer[ObjetoRecolectable]()
 
-  def energiaDeObjetos():ListBuffer[Int]  ={
-  objetosRecolectados.map { a => a.energia }
-  }
 
-  def proteccionAlGolpeDe(golpe: Int): Int = {
-    golpe
-  }
+  def capacidadLibre(): Int
 
-  def recibeGolpe(valor: Int):Unit={
+  def energiaDeObjetos():ListBuffer[Int]  =  objetosRecolectados.map { a => a.energia }
 
-   objetosRecolectados.foreach { a => a.recibeDanio(proteccionAlGolpeDe(valor))}
-  }
+  def proteccionAlGolpeDe(golpe: Int): Int =  golpe
+
+  def recibeGolpe(valor: Int):Unit=objetosRecolectados.foreach { a => a.recibeDanio(proteccionAlGolpeDe(valor))}
+
   def actualizaCapacidadLibre(objetoRecolectable: ObjetoRecolectable)
 
-  def recolectarObjeto(objetoRecolectable: ObjetoRecolectable) = {
+  def recolectarObjeto(objetoRecolectable: ObjetoRecolectable) =  objetosRecolectados += objetoRecolectable
 
-    objetosRecolectados += objetoRecolectable
-  }
-
-
-def actualizarPeso(unObjetoRecolectable : ObjetoRecolectable, g : Int)
+  def actualizarPeso(unObjetoRecolectable : ObjetoRecolectable, g : Int)
 
   def guardarObjeto(objetoRecolectable: ObjetoRecolectable) {
 
     if (!estaLlena() && puedoGuardar(objetoRecolectable)) {
-
       recolectarObjeto(objetoRecolectable)
       actualizaCapacidadLibre(objetoRecolectable)
-
     }
     else
       println(s"No se puede Guardar el objeto de " + objetoRecolectable.obtenerVolumen() + " cc3 de capacidad " +
@@ -54,9 +42,6 @@ def actualizarPeso(unObjetoRecolectable : ObjetoRecolectable, g : Int)
       (0 <= unObjetoRecolectable._peso)
   }
 
-  def estaLlena() = {
-    capacidadLibre == 0
+  def estaLlena() =  capacidadLibre == 0
 
-
-  }
 }

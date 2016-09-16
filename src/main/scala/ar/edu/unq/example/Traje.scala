@@ -1,7 +1,7 @@
 package ar.edu.unq.example
 
 /**
-  * Created by user on 02/09/2016.
+  *
   */
 abstract class Traje {
 

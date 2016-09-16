@@ -1,7 +1,7 @@
 package ar.edu.unq.example
 
 /**
-  * Created by user on 28/08/2016.
+  *
   */
 class PersonajeSpec extends BaseSpec {
 
@@ -105,7 +105,7 @@ class PersonajeSpec extends BaseSpec {
     unPersonaje.capacidadOxigenoFinal() shouldBe 1480
   }
 
-  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3858" in {
+  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3878" in {
 
 
     val unaMochila = new MochilaConCapacidadGrande
@@ -113,10 +113,10 @@ class PersonajeSpec extends BaseSpec {
     val unTrajePesado = new TrajePesado
     unPersonaje.agregarTraje(unTrajePesado)
     unPersonaje.caminarKms(50)
-    unPersonaje.capacidadOxigenoFinal() shouldBe 3858
+    unPersonaje.capacidadOxigenoFinal() shouldBe 3878
   }
 
-  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3704" in {
+  " personaje Traje Pesado pregunto por la capacidad Oxigeno Final" should "3724" in {
 
 
     val unaMochila = new MochilaConCapacidadGrande
@@ -124,7 +124,7 @@ class PersonajeSpec extends BaseSpec {
     val unTrajePesado = new TrajePesado
     unPersonaje.agregarTraje(unTrajePesado)
     unPersonaje.caminarKms(120)
-    unPersonaje.capacidadOxigenoFinal() shouldBe 3704
+    unPersonaje.capacidadOxigenoFinal() shouldBe 3724
   }
 
   " personaje Con escudo con proteccion 100 atacan con 50 la energia proteccion restante " should "150" in {
@@ -139,7 +139,7 @@ class PersonajeSpec extends BaseSpec {
 
   }
 
-  " personaje Con escudo con proteccion 100 atacan con 150 la energia proteccion restante " should "50" in {
+  " personaje Con escudo con proteccion 100 atacan con 150 la energia proteccion restante " should "0" in {
 
 
     val unaMochila = new MochilaConCapacidadGrande
@@ -164,7 +164,7 @@ class PersonajeSpec extends BaseSpec {
 
   }
 
-  " personaje Con escudo Recargable con proteccion 100 atacan con 50 la energia proteccion restante al caminar 1Km" should "150" in {
+  " personaje Con escudo Recargable con proteccion 100 atacan con 50 la energia proteccion restante al caminar 1Km" should "60" in {
 
 
     val unaMochila = new MochilaConCapacidadGrande
@@ -215,31 +215,5 @@ class PersonajeSpec extends BaseSpec {
 
   }
 
-
-
-
-/*
-    " personaje Traje Pesado Mochila propulsora con peso 268 y que se propulsa 10 segundos su consumo y altura " should "2680 y 5 respectivamente"in {
-
-
-      var unaMochila = new MochilaConCapacidadGrande with Propulsora
-      unaMochila.propulsarXTiempo(10)
-      var unPersonaje = new Personaje(150, unaMochila)
-      unPersonaje.miMochila.propulsarXTiempo(10)
-      val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
-      objetoRecolectable.setValorDecompacatacion(100)
-      val cuerpoCeleste = new CuerpoCeleste {
-        override var gravedad: Int =4
-      }
-
-      unaMochila.actualizarPeso(objetoRecolectable,4)
-      unPersonaje.setCuerpoCeleste(cuerpoCeleste)
-      unPersonaje.recolectarObjeto(objetoRecolectable)
-      unPersonaje. miMochila.propulsarXTiempo(10)
-
-      unPersonaje.miMochila.consumoPorPropulsion(10) shouldBe (2680)
-      unPersonaje.miMochila.posicionEnEjeZ(10) shouldBe(5)
-
-    }
-*/
 }
+

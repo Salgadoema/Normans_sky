@@ -1,7 +1,7 @@
 package ar.edu.unq.example
 
 /**
-  * Created by user on 28/08/2016.
+  *
   */
 class MochilaSpec extends BaseSpec{
 
@@ -79,7 +79,7 @@ class MochilaSpec extends BaseSpec{
     unaMochila.estaLlena shouldBe true
   }
 
-  "una mochila chica no llena no puede recibe objetos mas grandes que su capacidad libre" should "Indica mochila llena" in{
+  "una mochila chica no llena no puede recibir objetos mas grandes que su capacidad libre" should "Indica mochila llena" in{
 
     val unaMochila= new MochilaConCapacidadChica
     val objetoRecolectable = new ObjetoRecolectable(1000,"roca",9)
@@ -133,7 +133,7 @@ class MochilaSpec extends BaseSpec{
   }
 
 
-  "una mochila chica Con CompactacionPorVacio guarda un objeto SemiCompactable de 1000 con compactabilidad=100 y al preguntarle la capacidad libre" should "39500" in{
+  "una mochila chica Con CompactacionPorVacio guarda un objeto SemiCompactable de 1000 con compactabilidad=100 y al preguntarle la capacidad libre" should "39100" in{
 
     val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
@@ -148,7 +148,7 @@ class MochilaSpec extends BaseSpec{
     unaMochila.estaLlena shouldBe false
   }
 
-  "una mochila chica Deshidratadora guarda un objeto Organico con porc de agua de 40 al deshidratarlo y preguntarle la capacidad libre" should "39500" in{
+  "una mochila chica Deshidratadora guarda un objeto Organico con porc de agua de 50 al deshidratarlo y preguntarle la capacidad libre" should "39500" in{
 
     val unaMochila= new MochilaConCapacidadChica with Deshidratadora
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",56) with Organico
@@ -179,7 +179,7 @@ class MochilaSpec extends BaseSpec{
   }
 
 
-  "mochila SemiRigida recibe daño de 100 absorve 20 con un objeto de 1000puntos le pregunto al objeto energia dsp del golpe" should "980" in{
+  "mochila SemiRigida recibe daño de 100 absorve 20 con un objeto de 1000puntos le pregunto al objeto energia dsp del golpe" should "920" in{
     val unaMochila= new MochilaConCapacidadGrande with Deshidratadora with SemiRigida {
       override var constDeAbsorbcion: Int = 20
     }
@@ -213,7 +213,7 @@ class MochilaSpec extends BaseSpec{
     unaMochila.pesoMaximo shouldBe 1000
   }
 
-  "una mochila chica Con CompactacionPorVacio guarda un objeto SemiCompactable de 1000 con compactabilidad=100 y al preguntarle la capacidad libre en peso" should "732" in{
+  "Idem anterior en un cuerpo celeste con gravedad 4 al preguntarle la capacidad libre en peso" should "732" in{
 
     val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
@@ -235,7 +235,7 @@ class MochilaSpec extends BaseSpec{
     unaMochila.pesoMaximo shouldBe 1000
   }
 
-  "unaMochila propulsora con peso 268 y que se propulsa 10 segundos su consumo y altura " should "1320 y 5 respectivamente"in{
+  "unaMochila propulsora con peso 268 y que se propulsa 10 segundos su combustible  y altura " should "1320 y 5 respectivamente"in{
 
     val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio with Propulsora
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
@@ -253,7 +253,7 @@ class MochilaSpec extends BaseSpec{
     unaMochila.altura shouldBe 5
   }
 
-  "unaMochila propulsora con peso 268 y que se propulsa 2y2 segundos su consumo y altura " should "1340 y 5 respectivamente"in{
+  "unaMochila propulsora con peso 268 y que se propulsa 2y2 segundos su conbustible y altura " should "2928 y 2 respectivamente"in{
 
     val unaMochila= new MochilaConCapacidadChica with CompactacionPorVacio with Propulsora
     val objetoRecolectable = new ObjetoRecolectable(1000, "roca",67) with SemiCompactable
