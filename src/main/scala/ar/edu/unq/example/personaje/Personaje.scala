@@ -57,4 +57,27 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
   def getMochila : Mochila = miMochila
 
+  def getEnergia :Int = {
+    if(energia>=0) energia
+    else 0
+  }
+
+  def combatirCon(atacante :Personaje, defensor :Personaje) :Unit={
+    atacante.atacar(defensor)
+    if(defensor.getEnergia > 0) {
+      println(defensor.getEnergia)
+      defensor.combatirAMuerte(defensor, atacante)
+    }
+    else println("El atacado está muerto")
+  }
+
+  def combatirAMuerte(atacante :Personaje, defensor :Personaje) :Unit={
+    atacante.atacar(defensor)
+    if(defensor.getEnergia > 0) {
+      println(defensor.getEnergia)
+      defensor.combatirCon(defensor, atacante)
+    }
+    else println("El atacado está muerto")
+  }
+
 }
