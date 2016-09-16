@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="SBT 1" modules="normans_sky">
-      <option name="postfixOps" value="true" />
-    </profile>
-    <profile name="SBT 2" modules="root-2016s2-grupo03-tp1" />
+    <profile name="SBT 2" modules="root-2016s2-grupo03-tp1,normans_sky,normans_sky" />
   </component>
 </project>

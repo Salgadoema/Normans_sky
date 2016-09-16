@@ -20,6 +20,8 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
   def setCuerpoCeleste(cuerpoCeleste: CuerpoCeleste ) = cuerpoCelesteDondeEstoy = cuerpoCeleste
 
+  def getPoderDeAtaque : Int = poderDeAtaque
+
   def nivelDeProteccion(): Int = miEscudo.proteccion
 
   def caminarKms(km: Int): Unit = {

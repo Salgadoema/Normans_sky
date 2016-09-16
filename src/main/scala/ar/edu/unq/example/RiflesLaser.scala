@@ -25,5 +25,5 @@ trait RiflesLaser extends Personaje{
   override def atacar(unPersonaje : Personaje) : Personaje =
    unPersonaje recibirDanhoDe(usarArma(celdasDeEnergia), this)
 
-
+  override def getPoderDeAtaque: Int = celdasDeEnergia
 }
