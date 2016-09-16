@@ -1,5 +1,7 @@
 package ar.edu.unq.example
 
+import ar.edu.unq.example.trajes.{TrajeLiviano, TrajePesado}
+
 /**
   * Created by user on 02/09/2016.
   */

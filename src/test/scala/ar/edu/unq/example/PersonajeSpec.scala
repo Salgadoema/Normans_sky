@@ -1,5 +1,11 @@
 package ar.edu.unq.example
 
+import ar.edu.unq.example.escudos.{AbsorcionDeDanho, Escudo, Recargable, ReflectorDeDanho}
+import ar.edu.unq.example.mochilas.{MochilaConCapacidadChica, MochilaConCapacidadGrande, MochilaConCapacidadMediana}
+import ar.edu.unq.example.objetosRecolectables.ObjetoRecolectable
+import ar.edu.unq.example.personaje.Personaje
+import ar.edu.unq.example.trajes.{TrajeLiviano, TrajePesado}
+
 /**
   *
   */

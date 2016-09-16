@@ -1,5 +1,9 @@
 package ar.edu.unq.example
 
+import ar.edu.unq.example.armas.{ArmaDeFuego, ArmaRara, RiflesLaser}
+import ar.edu.unq.example.mochilas.MochilaConCapacidadChica
+import ar.edu.unq.example.personaje.Personaje
+
 /**
   *
   */

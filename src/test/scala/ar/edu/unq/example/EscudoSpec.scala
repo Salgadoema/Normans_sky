@@ -1,5 +1,9 @@
 package ar.edu.unq.example
 
+import ar.edu.unq.example.escudos.{Escudo, Recargable, ReflectorDeDanho}
+import ar.edu.unq.example.mochilas.{MochilaConCapacidadChica, MochilaConCapacidadGrande}
+import ar.edu.unq.example.personaje.Personaje
+
 /**
   *
   */
@@ -23,7 +27,7 @@ class EscudoSpec extends BaseSpec{
     val unEscudo = new Escudo(300)
     unEscudo.proteccion shouldBe 300
     unEscudo.proteccionEscudoAlRecibirDanhoDe(50)
-    unEscudo.proteccion shouldBe(250)
+    unEscudo.proteccion shouldBe 250
   }
 
   "creo un escudo con proteccion 300 le pregnto su proteccion si recibe daño de 350" should "0" in {
@@ -31,14 +35,14 @@ class EscudoSpec extends BaseSpec{
     val unEscudo = new Escudo(300)
     unEscudo.proteccion shouldBe 300
     unEscudo.proteccionEscudoAlRecibirDanhoDe(350)
-    unEscudo.proteccion shouldBe(0)
+    unEscudo.proteccion shouldBe 0
   }
   "creo un escudo Recargable con proteccion 300 le pregnto su proteccion al caminar20km" should "500" in {
 
     val unEscudo = new Escudo(300) with Recargable
     unEscudo.proteccion shouldBe 300
     unEscudo.recargar(20)
-    unEscudo.proteccion shouldBe(500)
+    unEscudo.proteccion shouldBe 500
   }
 
   "escudo Recargable con proteccion 100 atacan con 50 la energia proteccion restante al caminar 1Km" should "60" in {
@@ -46,7 +50,7 @@ class EscudoSpec extends BaseSpec{
    val unEscudo = new Escudo(100) with Recargable
    unEscudo.proteccionEscudoAlRecibirDanhoDe(50)
    unEscudo.recargar(1)
-  unEscudo.proteccion shouldBe(60)
+  unEscudo.proteccion shouldBe 60
 
 }
 
@@ -61,7 +65,7 @@ class EscudoSpec extends BaseSpec{
     unEscudo.proteccionEscudoAlRecibirDanhoDe(50)
 
     atacante=unEscudo.reacciona(50, atacante, defensor)
-    unEscudo.proteccion shouldBe(50)
+    unEscudo.proteccion shouldBe 50
     atacante.energia shouldBe 145
     defensor.energia shouldBe 150
 

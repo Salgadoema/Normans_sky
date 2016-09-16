@@ -1,5 +1,10 @@
 package ar.edu.unq.example
 
+import ar.edu.unq.example.armas.{ArmaDeFuego, ArmaRara, RiflesLaser}
+import ar.edu.unq.example.mochilas.MochilaConCapacidadChica
+import ar.edu.unq.example.personaje.{EstadoFisico, ExperienciaEnCombate, Personaje}
+import ar.edu.unq.example.potenciadoresDePoderDeAtaque.{Cancelador, Duplicador, Potenciador}
+
 /**
   * Created by damian on 16/09/16.
   */
