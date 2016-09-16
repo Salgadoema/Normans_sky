@@ -115,9 +115,9 @@ class ModificadoresDePoderSpec extends BaseSpec{
     unPersonaje.getPoderDeAtaque shouldBe 0
   }
 
-  "unPersonaje con RifleLaser y Cancelador ataca 3 veces" should "0, 0, 0, 0" in {
+  "unPersonaje con RifleLaser y Cancelador ataca 3 veces" should "10, 0, 0, 0" in {
     var unaMochila  = new MochilaConCapacidadChica
-    var unPersonaje = new Personaje(10, unaMochila) with RiflesLaser with Potenciador
+    var unPersonaje = new Personaje(10, unaMochila) with RiflesLaser with Cancelador
     var otro = new Personaje(1000, unaMochila)
 
     unPersonaje.getPoderDeAtaque shouldBe 0
