@@ -43,7 +43,7 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
     miEscudo.reacciona(danho,atacante,this)
   }
 
-  def atacar(unPersonaje : Personaje) : Personaje = unPersonaje recibirDanhoDe(poderDeAtaque, this)
+  def atacar(unPersonaje : Personaje) : Personaje = unPersonaje recibirDanhoDe(getPoderDeAtaque, this)
 
   def recibirDanho(unDanho : Int) : Unit = energia = energia + proteccionEscudo(unDanho)
 

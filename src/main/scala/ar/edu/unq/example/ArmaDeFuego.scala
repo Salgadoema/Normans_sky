@@ -21,7 +21,8 @@ trait ArmaDeFuego extends Personaje{
   }
 
   override def atacar(unPersonaje : Personaje) : Personaje = {
-    unPersonaje recibirDanhoDe(usarArma(), this)
+    unPersonaje recibirDanhoDe(getPoderDeAtaque, this)
   }
 
+  override def getPoderDeAtaque: Int = usarArma()
 }

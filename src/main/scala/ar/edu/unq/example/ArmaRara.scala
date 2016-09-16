@@ -22,9 +22,9 @@ trait ArmaRara extends Personaje{
   }
 
   override def atacar(unPersonaje : Personaje) : Personaje = {
-    unPersonaje recibirDanhoDe(usarArma(poderRaroDeAtaque), this)
+    unPersonaje recibirDanhoDe(getPoderDeAtaque, this)
   }
 
-  override def getPoderDeAtaque: Int = poderRaroDeAtaque
+  override def getPoderDeAtaque: Int = usarArma(poderRaroDeAtaque)
 
 }

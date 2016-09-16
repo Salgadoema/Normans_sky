@@ -12,9 +12,7 @@ trait RiflesLaser extends Personaje{
 
   def usarArma(celdasDisponibles : Int): Int = {
     if (celdasDisponibles >= 1) {
-      val ret = celdasDeEnergia
-      celdasDeEnergia = celdasDeEnergia - 1
-      ret
+      celdasDeEnergia
     }
 
     else 0
@@ -22,8 +20,13 @@ trait RiflesLaser extends Personaje{
 
   def recargarLaser() : Unit = setCeldasDeEnergia(10)
 
-  override def atacar(unPersonaje : Personaje) : Personaje =
-   unPersonaje recibirDanhoDe(usarArma(celdasDeEnergia), this)
+  override def atacar(unPersonaje : Personaje) : Personaje = {
+    val ret = unPersonaje recibirDanhoDe(getPoderDeAtaque, this)
+    celdasDeEnergia = celdasDeEnergia -1
+    ret
+  }
 
-  override def getPoderDeAtaque: Int = celdasDeEnergia
+  override def getPoderDeAtaque: Int = {
+    usarArma(celdasDeEnergia)
+  }
 }
