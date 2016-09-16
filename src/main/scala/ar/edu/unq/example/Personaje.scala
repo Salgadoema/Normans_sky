@@ -49,5 +49,6 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
 
   def proteccionEscudo(unDanho : Int) : Int =   miEscudo.proteccionEscudoAlRecibirDanhoDe(unDanho)
 
+  def getMochila : Mochila = miMochila
 
 }

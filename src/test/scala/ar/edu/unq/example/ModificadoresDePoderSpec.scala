@@ -129,4 +129,16 @@ class ModificadoresDePoderSpec extends BaseSpec{
     unPersonaje.getPoderDeAtaque shouldBe 0
   }
 
+  /**************************************************/
+  /*         MODIFICADOR POR ESTADO FISICO          */
+  /**************************************************/
+
+  "unPersonaje con un RifleLaser que camina 20km y su poder de ataque es" should "6" in{
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with RiflesLaser with EstadoFisico
+
+    unPersonaje.caminarKms(20)
+    unPersonaje.getPoderDeAtaque shouldBe 6
+  }
+
 }
