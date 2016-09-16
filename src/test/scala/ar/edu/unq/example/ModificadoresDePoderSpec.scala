@@ -141,4 +141,27 @@ class ModificadoresDePoderSpec extends BaseSpec{
     unPersonaje.getPoderDeAtaque shouldBe 6
   }
 
+  /**************************************************/
+  /*          MODIFICADOR POR EXPERIENCIA           */
+  /**************************************************/
+
+  "unPersonaje con un RifleLaser que tien 2 peleas y gana experiencia su poder de ataque es" should "10" in {
+    var unaMochila = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with RiflesLaser with ExperienciaEnCombate
+    var otro = new Personaje(1000, unaMochila)
+
+    unPersonaje.atacar(otro).getPoderDeAtaque shouldBe 10
+    unPersonaje.atacar(otro).getPoderDeAtaque shouldBe 10
+  }
+
+  "unPersonaje que tien 2 peleas y gana experiencia su poder de ataque es" should "3" in {
+    var unaMochila = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with ExperienciaEnCombate
+    var otro = new Personaje(1000, unaMochila)
+
+    unPersonaje.atacar(otro).getPoderDeAtaque shouldBe 2
+    unPersonaje.atacar(otro).getPoderDeAtaque shouldBe 3
+  }
+
+
 }
