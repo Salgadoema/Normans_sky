@@ -1,5 +1,9 @@
 package ar.edu.unq.example
 
+import ar.edu.unq.example.miscelaneos.CuerpoCeleste
+import ar.edu.unq.example.mochilas._
+import ar.edu.unq.example.objetosRecolectables.{NoCompactable, ObjetoCompactable, ObjetoRecolectable, Organico}
+
 /**
   *
   */
