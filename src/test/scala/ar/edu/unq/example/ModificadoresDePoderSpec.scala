@@ -89,4 +89,44 @@ class ModificadoresDePoderSpec extends BaseSpec{
     unPersonaje.getPoderDeAtaque shouldBe 11
   }
 
+  /**************************************************/
+  /*                  CANCELADORES                  */
+  /**************************************************/
+
+  "unPersonaje con cancelador" should "0" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with Cancelador
+
+    unPersonaje.getPoderDeAtaque shouldBe 0
+  }
+
+  "unPersonaje con ArmaDeFuego y Cancelador" should "0" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with ArmaDeFuego with Cancelador
+
+    unPersonaje.getPoderDeAtaque shouldBe 0
+  }
+
+  "unPersonaje con ArmaRara de poder 5 y Cancelador" should "0" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with ArmaRara with Cancelador
+
+    unPersonaje.poderRaroDeAtaque(5)
+    unPersonaje.getPoderDeAtaque shouldBe 0
+  }
+
+  "unPersonaje con RifleLaser y Cancelador ataca 3 veces" should "0, 0, 0, 0" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with RiflesLaser with Potenciador
+    var otro = new Personaje(1000, unaMochila)
+
+    unPersonaje.getPoderDeAtaque shouldBe 0
+    unPersonaje.atacar(otro)
+    unPersonaje.getPoderDeAtaque shouldBe 0
+    unPersonaje.atacar(otro)
+    unPersonaje.getPoderDeAtaque shouldBe 0
+    unPersonaje.atacar(otro)
+    unPersonaje.getPoderDeAtaque shouldBe 0
+  }
+
 }
