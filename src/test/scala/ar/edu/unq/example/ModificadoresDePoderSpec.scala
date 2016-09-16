@@ -5,6 +5,10 @@ package ar.edu.unq.example
   */
 class ModificadoresDePoderSpec extends BaseSpec{
 
+  /**************************************************/
+  /*                  DUPLICADORES                  */
+  /**************************************************/
+
   "unPersonaje con duplicador de ataque" should "2" in {
     var unaMochila  = new MochilaConCapacidadChica
     var unPersonaje = new Personaje(10, unaMochila) with Duplicador
@@ -40,4 +44,49 @@ class ModificadoresDePoderSpec extends BaseSpec{
     unPersonaje.atacar(otro)
     unPersonaje.getPoderDeAtaque shouldBe 14
   }
+
+  /**************************************************/
+  /*                 POTENCIADORES                  */
+  /**************************************************/
+
+  "unPersonaje con potenciador de 5" should "6" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with Potenciador
+
+    unPersonaje.setValorAgregadoDePotenciador(5)
+    unPersonaje.getPoderDeAtaque shouldBe 6
+  }
+
+  "unPersonaje con ArmaDeFuego y Potenciador de 6" should "9" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with ArmaDeFuego with Potenciador
+
+    unPersonaje.setValorAgregadoDePotenciador(6)
+    unPersonaje.getPoderDeAtaque shouldBe 9
+  }
+
+  "unPersonaje con ArmaRara de poder 5 y Potenciador de 3" should "8" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with ArmaRara with Potenciador
+
+    unPersonaje.setValorAgregadoDePotenciador(3)
+    unPersonaje.poderRaroDeAtaque(5)
+    unPersonaje.getPoderDeAtaque shouldBe 8
+  }
+
+  "unPersonaje con RifleLaser y potenciador de 4 ataca 3 veces" should "14, 13, 12, 11" in {
+    var unaMochila  = new MochilaConCapacidadChica
+    var unPersonaje = new Personaje(10, unaMochila) with RiflesLaser with Potenciador
+    var otro = new Personaje(1000, unaMochila)
+
+    unPersonaje.setValorAgregadoDePotenciador(4)
+    unPersonaje.getPoderDeAtaque shouldBe 14
+    unPersonaje.atacar(otro)
+    unPersonaje.getPoderDeAtaque shouldBe 13
+    unPersonaje.atacar(otro)
+    unPersonaje.getPoderDeAtaque shouldBe 12
+    unPersonaje.atacar(otro)
+    unPersonaje.getPoderDeAtaque shouldBe 11
+  }
+
 }
