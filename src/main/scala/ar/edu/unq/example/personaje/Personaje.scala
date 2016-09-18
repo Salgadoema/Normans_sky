@@ -1,7 +1,7 @@
 package ar.edu.unq.example.personaje
 
 import ar.edu.unq.example.escudos.Escudo
-import ar.edu.unq.example.mochilas.Mochila
+import ar.edu.unq.example.mochilas.{Mochila, MochilaConCapacidadChica, Propulsora}
 import ar.edu.unq.example.objetosRecolectables.ObjetoRecolectable
 import ar.edu.unq.example.trajes.{Traje, TrajeLiviano}
 import ar.edu.unq.example.miscelaneos.CuerpoCeleste
@@ -10,6 +10,7 @@ import ar.edu.unq.example.miscelaneos.CuerpoCeleste
   *
   */
 class Personaje(var energia : Int, unaMochila : Mochila  )  {
+
 
   var miTraje:Traje = new TrajeLiviano
   var cuerpoCelesteDondeEstoy : CuerpoCeleste = _
@@ -62,22 +63,22 @@ class Personaje(var energia : Int, unaMochila : Mochila  )  {
     else 0
   }
 
-  def combatirCon(atacante :Personaje, defensor :Personaje) :Unit={
+  def combatirAMuerte(atacante :Personaje, defensor :Personaje) :Unit={
     atacante.atacar(defensor)
-    if(defensor.getEnergia > 0) {
+    if(defensor.getEnergia > 0 && defensor.getCantBalas()>0) {
       println(defensor.getEnergia)
       defensor.combatirAMuerte(defensor, atacante)
     }
-    else println("El atacado está muerto")
+    else
+      if(defensor.getCantBalas()==0)println("te quedaste sin balas")
+      if(defensor.getEnergia<=0)println("El atacado está muerto ")
+
+
+
   }
 
-  def combatirAMuerte(atacante :Personaje, defensor :Personaje) :Unit={
-    atacante.atacar(defensor)
-    if(defensor.getEnergia > 0) {
-      println(defensor.getEnergia)
-      defensor.combatirCon(defensor, atacante)
-    }
-    else println("El atacado está muerto")
-  }
+  def getCantBalas(): Int =1
+
+
 
 }

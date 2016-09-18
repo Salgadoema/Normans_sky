@@ -7,7 +7,7 @@ import ar.edu.unq.example.personaje.Personaje
   */
 trait ArmaDeFuego extends Personaje{
 
-  var cantDeBalas: Int = 6
+   var cantDeBalas: Int = 6
   poderDeAtaque = 3
 
   def recargarBalas (unasCuantasBalas : Int) : Unit = {
@@ -27,4 +27,7 @@ trait ArmaDeFuego extends Personaje{
   }
 
   override def getPoderDeAtaque: Int = usarArma()
+
+  override def getCantBalas(): Int = cantDeBalas
 }
+
